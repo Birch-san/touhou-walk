@@ -85,7 +85,7 @@ public class WalkerView extends SurfaceView {
     private Bitmap getScaledBmp(int id) {
         return resizeBitmap(
                 getRawBmp(
-                        R.drawable.reimu
+                        id
                 ),
                 2
         );
