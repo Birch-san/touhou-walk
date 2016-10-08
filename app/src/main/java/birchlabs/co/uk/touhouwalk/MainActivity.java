@@ -69,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    private void stopServiceIfPossible() {
+        if (isMyServiceRunning(Walker.class)) {
+            stopService(getServiceIntent());
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (isMyServiceRunning(Walker.class)) {
-            stopService(getServiceIntent());
-        }
+        stopServiceIfPossible();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -114,5 +118,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopServiceIfPossible();
     }
 }
