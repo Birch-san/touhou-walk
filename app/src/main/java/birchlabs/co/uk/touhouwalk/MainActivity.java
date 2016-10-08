@@ -2,7 +2,9 @@ package birchlabs.co.uk.touhouwalk;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +15,35 @@ import android.view.View;
 import birchlabs.co.uk.touhouwalk.services.Walker;
 
 public class MainActivity extends AppCompatActivity {
+
+    // code to post/handler request for permission
+//    public final static int REQUEST_CODE = -1010101;
+    public final static int REQUEST_CODE = 5463 & 0xffffff00;
+
+    public void checkDrawOverlayPermission(Context context) {
+        // check if we already  have permission to draw over other apps
+        if (!Settings.canDrawOverlays(context)) {
+            // if not construct intent to request permission
+            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            // request permission via start activity for result
+            startActivityForResult(intent, REQUEST_CODE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // check if received result code
+        // is equal our requested code for draw permission
+        if (requestCode == REQUEST_CODE) {
+            // if so check once again if we have permission
+            if (Settings.canDrawOverlays(this)) {
+                // continue here - permission was granted
+                final Intent serviceIntent = new Intent(getApplicationContext(), Walker.class);
+                startService(serviceIntent);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Intent serviceIntent = new Intent(MainActivity.this, Walker.class);
-                startService(serviceIntent);
+
+                checkDrawOverlayPermission(getApplicationContext());
 
 //                wm.addView(mTopView, params);
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

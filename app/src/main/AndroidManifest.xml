@@ -3,6 +3,8 @@
     package="birchlabs.co.uk.touhouwalk">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!--http://stackoverflow.com/a/34061521/5257399-->
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION"/>
 
     <application
         android:allowBackup="true"
