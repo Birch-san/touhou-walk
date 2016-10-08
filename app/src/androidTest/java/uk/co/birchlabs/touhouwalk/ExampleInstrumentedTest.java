@@ -1,4 +1,4 @@
-package birchlabs.co.uk.touhouwalk;
+package uk.co.birchlabs.touhouwalk;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("birchlabs.co.uk.touhouwalk", appContext.getPackageName());
+        assertEquals("uk.co.birchlabs.touhouwalk", appContext.getPackageName());
     }
 }

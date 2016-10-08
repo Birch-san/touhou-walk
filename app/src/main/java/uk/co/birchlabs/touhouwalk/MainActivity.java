@@ -1,4 +1,4 @@
-package birchlabs.co.uk.touhouwalk;
+package uk.co.birchlabs.touhouwalk;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import birchlabs.co.uk.touhouwalk.services.Walker;
+import uk.co.birchlabs.touhouwalk.services.Walker;
 
 public class MainActivity extends AppCompatActivity {
 

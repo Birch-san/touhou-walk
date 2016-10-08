@@ -1,4 +1,4 @@
-package birchlabs.co.uk.touhouwalk.services;
+package uk.co.birchlabs.touhouwalk.services;
 
 import android.app.Service;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
-import birchlabs.co.uk.touhouwalk.views.WalkerView;
+import uk.co.birchlabs.touhouwalk.views.WalkerView;
 
 /**
  * Created by birch on 08/10/2016.
