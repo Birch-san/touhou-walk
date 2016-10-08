@@ -2,17 +2,15 @@ package birchlabs.co.uk.touhouwalk;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.view.View;
+
+import birchlabs.co.uk.touhouwalk.services.Walker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Intent serviceIntent = new Intent();
-                serviceIntent.setAction("birchlabs.co.uk.touhouwalk.services.Walker");
+                final Context applicationContext = getApplicationContext();
+                final Intent serviceIntent = new Intent(Walker.class.getName());
+                serviceIntent.setPackage(getPackageName());
+
+//                final Intent serviceIntent = new Intent(applicationContext, Walker.class);
                 startService(serviceIntent);
 
 //                wm.addView(mTopView, params);
