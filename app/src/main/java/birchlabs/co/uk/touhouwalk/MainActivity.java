@@ -22,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkDrawOverlayPermission(Context context) {
         // check if we already  have permission to draw over other apps
-        if (!Settings.canDrawOverlays(context)) {
+        if (Settings.canDrawOverlays(context)) {
+            startServiceIfPossible();
+        } else {
             // if not construct intent to request permission
             final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
@@ -37,12 +39,20 @@ public class MainActivity extends AppCompatActivity {
         // is equal our requested code for draw permission
         if (requestCode == REQUEST_CODE) {
             // if so check once again if we have permission
-            if (Settings.canDrawOverlays(this)) {
-                // continue here - permission was granted
-                final Intent serviceIntent = new Intent(getApplicationContext(), Walker.class);
-                startService(serviceIntent);
-            }
+            startServiceIfPossible();
         }
+    }
+
+    private void startServiceIfPossible() {
+        if (Settings.canDrawOverlays(this)) {
+            // continue here - permission was granted
+            startService();
+        }
+    }
+
+    private void startService() {
+        final Intent serviceIntent = new Intent(getApplicationContext(), Walker.class);
+        startService(serviceIntent);
     }
 
     @Override
