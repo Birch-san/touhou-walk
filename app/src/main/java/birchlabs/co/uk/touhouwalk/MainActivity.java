@@ -25,11 +25,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Context applicationContext = getApplicationContext();
-                final Intent serviceIntent = new Intent(Walker.class.getName());
-                serviceIntent.setPackage(getPackageName());
-
-//                final Intent serviceIntent = new Intent(applicationContext, Walker.class);
+                final Intent serviceIntent = new Intent(MainActivity.this, Walker.class);
                 startService(serviceIntent);
 
 //                wm.addView(mTopView, params);
