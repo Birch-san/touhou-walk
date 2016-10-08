@@ -4,18 +4,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-import android.view.WindowManager;
 
 import uk.co.birchlabs.touhouwalk.R;
 
@@ -26,6 +19,8 @@ import uk.co.birchlabs.touhouwalk.R;
 public class WalkerView extends SurfaceView {
     private Paint systemPaint;
     private SurfaceHolder holder;
+//    private DisplayMetrics metrics;
+//    private WindowManager wm;
 
     private Bitmap bmp;
 
@@ -40,6 +35,9 @@ public class WalkerView extends SurfaceView {
     }
 
     private void init(Context c) {
+//        metrics = new DisplayMetrics();
+//        wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+//        wm.getDefaultDisplay().getMetrics(metrics);
 
         setZOrderOnTop(true);
         holder = getHolder();
@@ -68,7 +66,11 @@ public class WalkerView extends SurfaceView {
 
             }
         });
-        bmp = BitmapFactory.decodeResource(getResources(), R.drawable.reimu);
+//        final BitmapFactory.Options dimensions = new BitmapFactory.Options();
+//        dimensions.inJustDecodeBounds = true;
+//        final Bitmap sham = BitmapFactory.decodeResource(getResources(), R.drawable.reimu, dimensions);
+
+        bmp = getScaledBmp(R.drawable.reimu);
 
 
         systemPaint = new Paint();
@@ -78,6 +80,34 @@ public class WalkerView extends SurfaceView {
 
 //        updateDisplay();
 
+    }
+
+    private Bitmap getScaledBmp(int id) {
+        return resizeBitmap(
+                getRawBmp(
+                        R.drawable.reimu
+                ),
+                2
+        );
+    }
+
+    private Bitmap getRawBmp(int id) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false;
+        return BitmapFactory.decodeResource(
+                getResources(),
+                id,
+                options
+        );
+    }
+
+    private Bitmap resizeBitmap(Bitmap bitmap, int multiplier) {
+        return Bitmap.createScaledBitmap(
+                bitmap,
+                bitmap.getWidth()*multiplier,
+                bitmap.getHeight()*multiplier,
+                false
+        );
     }
 
 
@@ -101,6 +131,6 @@ public class WalkerView extends SurfaceView {
 //                systemPaint
 //        );
 //        canvas.drawColor(Color.BLACK);
-        canvas.drawBitmap(bmp, 10, 10, systemPaint);
+        canvas.drawBitmap(bmp, 0, 0, systemPaint);
     }
 }
