@@ -1,4 +1,4 @@
-package birchlabs.co.uk.touhouwalk;
+package uk.co.birchlabs.touhouwalk;
 
 import org.junit.Test;
 
