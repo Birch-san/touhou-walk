@@ -8,6 +8,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
+import birchlabs.co.uk.touhouwalk.R;
+
 /**
  * Created by birch on 08/10/2016.
  */
@@ -23,13 +25,14 @@ public class WalkerView extends View {
     }
 
     public WalkerView(Context c) {
-        super(c);
+        super(c, null, R.style.Walker);
         init(c);
     }
 
     private void init(Context c) {
 
         systemPaint = new Paint();
+        systemPaint.setAlpha(75);
 
         metrics = new DisplayMetrics();
 

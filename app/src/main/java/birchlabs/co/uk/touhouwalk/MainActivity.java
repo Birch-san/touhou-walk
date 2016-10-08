@@ -1,5 +1,6 @@
 package birchlabs.co.uk.touhouwalk;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -50,9 +51,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private Intent getServiceIntent() {
+        return new Intent(getApplicationContext(), Walker.class);
+    }
+
     private void startService() {
-        final Intent serviceIntent = new Intent(getApplicationContext(), Walker.class);
-        startService(serviceIntent);
+        startService(getServiceIntent());
+    }
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -61,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (isMyServiceRunning(Walker.class)) {
+            stopService(getServiceIntent());
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
