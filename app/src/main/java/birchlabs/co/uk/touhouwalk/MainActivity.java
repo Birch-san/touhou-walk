@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import birchlabs.co.uk.touhouwalk.services.Walker;
 
@@ -84,16 +85,18 @@ public class MainActivity extends AppCompatActivity {
 
         stopServiceIfPossible();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        (findViewById(R.id.start_button)
+        ).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 checkDrawOverlayPermission(getApplicationContext());
-
-//                wm.addView(mTopView, params);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+            }
+        });
+        (findViewById(R.id.stop_button)
+        ).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stopServiceIfPossible();
             }
         });
     }
