@@ -6,8 +6,9 @@ import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
-import android.view.View;
 import android.view.WindowManager;
+
+import java.util.Arrays;
 
 /**
  * Created by birch on 08/10/2016.
@@ -15,7 +16,8 @@ import android.view.WindowManager;
 
 public class WalkerService extends Service {
     private WalkerView view;
-    private WalkerThread thread;
+    private RenderWorker renderWorker;
+    private WorldWorker worldWorker;
 
     @Nullable
     @Override
@@ -50,8 +52,24 @@ public class WalkerService extends Service {
 
         wm.addView(view, params);
 
-        thread = new WalkerThread(view);
-        view.init(thread.getViewLifecycleCallback());
+        final GensoukyouFactory gensoukyouFactory = new GensoukyouFactory(
+                metrics.widthPixels,
+                metrics.heightPixels
+        );
+        final Gensoukyou gensoukyou = gensoukyouFactory.construct();
+
+        renderWorker = new RenderWorker(view);
+        worldWorker = new WorldWorker(gensoukyou);
+
+        view.init(
+                new ViewLifeCycleCallbackDelegator(
+                        Arrays.asList(
+                                worldWorker.getViewLifecycleCallback(),
+                                renderWorker.getViewLifecycleCallback()
+                        )
+                ),
+                gensoukyou
+        );
 
 //
 //        final LayoutInflater inflater = LayoutInflater.from(this);

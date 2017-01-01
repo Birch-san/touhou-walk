@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -23,6 +25,7 @@ public class WalkerView extends SurfaceView {
 //    private WindowManager wm;
 
     private Bitmap bmp;
+    private Gensoukyou gensoukyou;
 
 //    private final Context c;
 
@@ -36,7 +39,10 @@ public class WalkerView extends SurfaceView {
 //        this.c = c;
     }
 
-    public void init(final ViewLifecycleCallback viewLifecycleCallback) {
+    public void init(
+            final ViewLifecycleCallback viewLifecycleCallback,
+            final Gensoukyou gensoukyou
+    ) {
 //        metrics = new DisplayMetrics();
 //        wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
 //        wm.getDefaultDisplay().getMetrics(metrics);
@@ -135,6 +141,9 @@ public class WalkerView extends SurfaceView {
 //                systemPaint
 //        );
 //        canvas.drawColor(Color.BLACK);
+        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+
         canvas.drawBitmap(bmp, 0, 0, systemPaint);
     }
 }
