@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -83,9 +82,6 @@ public class WalkerView extends SurfaceView {
 //        dimensions.inJustDecodeBounds = true;
 //        final Bitmap sham = BitmapFactory.decodeResource(getResources(), R.drawable.reimu, dimensions);
 
-        bmp = getScaledBmp(R.drawable.reimu);
-//        bmp = getRawBmp(R.drawable.reimu);
-
 
         systemPaint = new Paint();
 //        systemPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
@@ -159,23 +155,10 @@ public class WalkerView extends SurfaceView {
             Canvas canvas,
             Baka baka
     ) {
-        int x = Math.round(baka.getX());
-        int y = Math.round(baka.getY());
-
         canvas.drawBitmap(
-                bmp,
-                new Rect(
-                        0,
-                        0,
-                        32*scaleFactor,
-                        32*scaleFactor
-                ),
-                new Rect(
-                        x,
-                        y,
-                        x+(bmp.getWidth()/3),
-                        y+(bmp.getHeight()/4)
-                ),
+                baka.getBitmap(),
+                baka.getFrame(),
+                baka.getDestination(),
                 systemPaint
         );
 
