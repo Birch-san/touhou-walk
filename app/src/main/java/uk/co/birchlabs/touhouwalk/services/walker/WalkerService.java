@@ -14,7 +14,8 @@ import android.view.WindowManager;
  */
 
 public class WalkerService extends Service {
-    private View view;
+    private WalkerView view;
+    private WalkerThread thread;
 
     @Nullable
     @Override
@@ -49,7 +50,8 @@ public class WalkerService extends Service {
 
         wm.addView(view, params);
 
-
+        thread = new WalkerThread(view);
+        view.init(thread.getViewLifecycleCallback());
 
 //
 //        final LayoutInflater inflater = LayoutInflater.from(this);

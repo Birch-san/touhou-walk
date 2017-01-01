@@ -24,17 +24,19 @@ public class WalkerView extends SurfaceView {
 
     private Bitmap bmp;
 
+//    private final Context c;
+
     public WalkerView(Context c, AttributeSet attributeSet) {
         super(c, attributeSet);
-        init(c);
+//        this.c = c;
     }
 
     public WalkerView(Context c) {
         super(c);
-        init(c);
+//        this.c = c;
     }
 
-    private void init(Context c) {
+    public void init(final ViewLifecycleCallback viewLifecycleCallback) {
 //        metrics = new DisplayMetrics();
 //        wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
 //        wm.getDefaultDisplay().getMetrics(metrics);
@@ -47,13 +49,15 @@ public class WalkerView extends SurfaceView {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
+                viewLifecycleCallback.onDestroyed();
             }
 
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                Canvas c = holder.lockCanvas(null);
-                onDraw(c);
-                holder.unlockCanvasAndPost(c);
+//                Canvas c = holder.lockCanvas(null);
+//                onDraw(c);
+//                holder.unlockCanvasAndPost(c);
+                viewLifecycleCallback.onReady();
             }
 
             @Override
