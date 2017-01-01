@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by birch on 08/10/2016.
@@ -18,6 +20,7 @@ public class WalkerService extends Service {
     private WalkerView view;
     private RenderWorker renderWorker;
     private WorldWorker worldWorker;
+    private List<IdempotentStop> agentsToStop = new ArrayList<>();
 
     @Nullable
     @Override
@@ -58,8 +61,11 @@ public class WalkerService extends Service {
         );
         final Gensoukyou gensoukyou = gensoukyouFactory.construct();
 
+
         renderWorker = new RenderWorker(view);
+        agentsToStop.add(renderWorker);
         worldWorker = new WorldWorker(gensoukyou);
+        agentsToStop.add(worldWorker);
 
         view.init(
                 new ViewLifeCycleCallbackDelegator(
@@ -81,6 +87,11 @@ public class WalkerService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        for (IdempotentStop agent : agentsToStop) {
+            agent.idempotentStop();
+        }
+
         ((WindowManager)getSystemService(WINDOW_SERVICE)).removeView(view);
         view = null;
     }

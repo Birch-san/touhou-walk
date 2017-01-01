@@ -7,10 +7,10 @@ import android.util.Log;
  * Created by birch on 01/01/2017.
  */
 
-public class WorldWorker extends Thread {
+public class WorldWorker extends Thread implements IdempotentStop {
     private static final String logTag = WorldWorker.class.getName();
 
-    private static final long FPS = 10;
+    private static final long FPS = 1;
 
     private final Gensoukyou gensoukyou;
 
@@ -32,17 +32,23 @@ public class WorldWorker extends Thread {
 
             @Override
             public void onDestroyed() {
-                running = false;
-                while (WorldWorker.this.isAlive()) {
-                    try {
-                        WorldWorker.this.join();
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                        Log.i(logTag, "Interrupted during join", e);
-                    }
-                }
+                idempotentStop();
             }
         };
+    }
+
+    @Override
+    public synchronized void idempotentStop() {
+        running = false;
+        while (WorldWorker.this.isAlive()) {
+            try {
+                WorldWorker.this.join();
+                break;
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                Log.i(logTag, "Interrupted during join", e);
+            }
+        }
     }
 
     @Override
