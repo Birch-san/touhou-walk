@@ -47,6 +47,8 @@ public class WalkerView extends SurfaceView {
 //        wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
 //        wm.getDefaultDisplay().getMetrics(metrics);
 
+        this.gensoukyou = gensoukyou;
+
         setZOrderOnTop(true);
         holder = getHolder();
         holder.setFormat(PixelFormat.TRANSPARENT);
@@ -142,7 +144,23 @@ public class WalkerView extends SurfaceView {
 //        canvas.drawColor(Color.BLACK);
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
+        for(Baka baka : gensoukyou.getBakas()) {
+            drawBaka(
+                    canvas,
+                    baka
+            );
+        }
+    }
 
-        canvas.drawBitmap(bmp, 0, 0, systemPaint);
+    private void drawBaka(
+            Canvas canvas,
+            Baka baka
+    ) {
+        canvas.drawBitmap(
+                bmp,
+                baka.getX(),
+                baka.getY(),
+                systemPaint
+        );
     }
 }

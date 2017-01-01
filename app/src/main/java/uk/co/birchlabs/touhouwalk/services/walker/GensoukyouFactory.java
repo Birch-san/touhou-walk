@@ -21,7 +21,7 @@ public class GensoukyouFactory {
                 widthPixels,
                 heightPixels
         );
-        final Baka baka = new Baka();
+        final Baka baka = new Baka(0, 0);
         gensoukyou.addBaka(baka);
         return gensoukyou;
     }
