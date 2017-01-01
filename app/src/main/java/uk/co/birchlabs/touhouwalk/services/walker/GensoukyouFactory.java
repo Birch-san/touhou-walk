@@ -40,7 +40,8 @@ public class GensoukyouFactory {
                         3,
                         4,
                         2
-                )
+                ),
+                new LinearAnimationTiming(3, 500)
         );
         gensoukyou.addBaka(baka);
         return gensoukyou;

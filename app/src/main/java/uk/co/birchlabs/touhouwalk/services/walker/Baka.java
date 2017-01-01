@@ -3,6 +3,8 @@ package uk.co.birchlabs.touhouwalk.services.walker;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 
+import java.util.Map;
+
 /**
  * Created by birch on 01/01/2017.
  */
@@ -17,22 +19,32 @@ public class Baka {
     private final int spriteWidth = 32;
     private final int spriteHeight = 32;
 
+    private long lifetime = 0;
+
     private Bearing bearing;
 
     private final Spritesheet spritesheet;
+    private final Map<Bearing, Animation> bearingToAnimation;
+    private final AnimationTiming animationTiming;
 
     public Baka(
             float x,
             float y,
-            Spritesheet spritesheet
+            Spritesheet spritesheet,
+            AnimationTiming animationTiming
     ) {
         this.x = x;
         this.y = y;
         bearing = Bearing.RIGHT;
         this.spritesheet = spritesheet;
+        bearingToAnimation = new BearingToAnimation(
+                new AnimationExtractor(spritesheet).extract(4, 3)
+        ).getAnimationMap();
+        this.animationTiming = animationTiming;
     }
 
     public void tick(long delta) {
+        lifetime += delta;
         float distanceThisTick = distancePerMilli * delta;
         x += distanceThisTick * bearing.getXCoefficient();
         y += distanceThisTick * bearing.getYCoefficient();
@@ -44,12 +56,11 @@ public class Baka {
 
 
     public Rect getFrame() {
-        return new Rect(
-                0,
-                0,
-                32 * spritesheet.getScaleFactor(),
-                32 * spritesheet.getScaleFactor()
-        );
+        return bearingToAnimation.get(bearing).getFrames().get(getStepFrame());
+    }
+
+    private int getStepFrame() {
+        return animationTiming.frame(lifetime);
     }
 
     public float getX() {
