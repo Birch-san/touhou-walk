@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import uk.co.birchlabs.touhouwalk.R;
-import uk.co.birchlabs.touhouwalk.activities.walker.Walker;
+import uk.co.birchlabs.touhouwalk.services.walker.WalkerService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Intent getServiceIntent() {
-        return new Intent(getApplicationContext(), Walker.class);
+        return new Intent(getApplicationContext(), WalkerService.class);
     }
 
     private void startService() {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopServiceIfPossible() {
-        if (isMyServiceRunning(Walker.class)) {
+        if (isMyServiceRunning(WalkerService.class)) {
             stopService(getServiceIntent());
         }
     }

@@ -18,7 +18,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:text="Hello World!" />-->
 
-    <!--<uk.co.birchlabs.touhouwalk.activities.walker.WalkerView-->
+    <!--<uk.co.birchlabs.touhouwalk.services.walker.WalkerView-->
         <!--android:layout_width="fill_parent"-->
         <!--android:layout_height="fill_parent"-->
         <!--android:fitsSystemWindows="false"-->

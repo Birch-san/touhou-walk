@@ -1,4 +1,4 @@
-package uk.co.birchlabs.touhouwalk.activities.walker;
+package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.content.Context;
 import android.graphics.Bitmap;

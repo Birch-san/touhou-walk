@@ -27,7 +27,7 @@
         </activity>
         <service
             android:enabled="true"
-            android:name=".activities.walker.Walker"
+            android:name=".services.walker.WalkerService"
             android:label="Walker Service"
             >
         </service>

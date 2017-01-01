@@ -1,4 +1,4 @@
-package uk.co.birchlabs.touhouwalk.activities.walker;
+package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.app.Service;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.view.WindowManager;
  * Created by birch on 08/10/2016.
  */
 
-public class Walker extends Service {
+public class WalkerService extends Service {
     private View view;
 
     @Nullable
