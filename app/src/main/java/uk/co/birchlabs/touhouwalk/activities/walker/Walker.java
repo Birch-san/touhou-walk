@@ -1,18 +1,13 @@
-package uk.co.birchlabs.touhouwalk.services;
+package uk.co.birchlabs.touhouwalk.activities.walker;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
-
-import uk.co.birchlabs.touhouwalk.views.WalkerView;
 
 /**
  * Created by birch on 08/10/2016.
