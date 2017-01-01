@@ -55,7 +55,6 @@ public class WalkerView extends SurfaceView {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
-                viewLifecycleCallback.onDestroyed();
             }
 
             @Override

@@ -8,7 +8,7 @@ import android.util.Log;
  * Created by birch on 01/01/2017.
  */
 
-public class RenderWorker extends Thread implements IdempotentStop {
+public class RenderWorker extends Thread {
     private static final String logTag = RenderWorker.class.getName();
 
     private static final long FPS = 1;
@@ -30,26 +30,25 @@ public class RenderWorker extends Thread implements IdempotentStop {
                 running = true;
                 RenderWorker.this.start();
             }
-
-            @Override
-            public void onDestroyed() {
-                idempotentStop();
-            }
         };
     }
 
-    @Override
-    public synchronized void idempotentStop() {
-        running = false;
-        while (RenderWorker.this.isAlive()) {
-            try {
-                RenderWorker.this.join();
-                break;
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                Log.i(logTag, "Interrupted during join", e);
+    public ServiceLifecycleCallback getServiceLifecycleCallback() {
+        return new ServiceLifecycleCallback() {
+            @Override
+            public void onDestroyed() {
+                running = false;
+                while (RenderWorker.this.isAlive()) {
+                    try {
+                        RenderWorker.this.join();
+                        break;
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        Log.i(logTag, "Interrupted during join", e);
+                    }
+                }
             }
-        }
+        };
     }
 
     @SuppressLint("WrongCall")

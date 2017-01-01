@@ -19,11 +19,4 @@ public class ViewLifeCycleCallbackDelegator implements ViewLifecycleCallback {
             callback.onReady();
         }
     }
-
-    @Override
-    public void onDestroyed() {
-        for (ViewLifecycleCallback callback : callbacks) {
-            callback.onDestroyed();
-        }
-    }
 }

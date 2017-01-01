@@ -20,7 +20,7 @@ public class WalkerService extends Service {
     private WalkerView view;
     private RenderWorker renderWorker;
     private WorldWorker worldWorker;
-    private List<IdempotentStop> agentsToStop = new ArrayList<>();
+    private ServiceLifecycleCallback serviceLifecycleCallback;
 
     @Nullable
     @Override
@@ -61,11 +61,15 @@ public class WalkerService extends Service {
         );
         final Gensoukyou gensoukyou = gensoukyouFactory.construct();
 
-
         renderWorker = new RenderWorker(view);
-        agentsToStop.add(renderWorker);
         worldWorker = new WorldWorker(gensoukyou);
-        agentsToStop.add(worldWorker);
+
+        serviceLifecycleCallback = new ServiceLifecycleCallbackDelegator(
+                Arrays.asList(
+                        worldWorker.getServiceLifecycleCallback(),
+                        renderWorker.getServiceLifecycleCallback()
+                )
+        );
 
         view.init(
                 new ViewLifeCycleCallbackDelegator(
@@ -88,9 +92,7 @@ public class WalkerService extends Service {
     public void onDestroy() {
         super.onDestroy();
 
-        for (IdempotentStop agent : agentsToStop) {
-            agent.idempotentStop();
-        }
+        serviceLifecycleCallback.onDestroyed();
 
         ((WindowManager)getSystemService(WINDOW_SERVICE)).removeView(view);
         view = null;
