@@ -53,13 +53,19 @@ public class WorldWorker extends Thread {
     @Override
     public void run() {
         final long ticksPS = 1000 / FPS;
-        long startTime;
+        long startTime = System.currentTimeMillis();
+        long prevStartTime;
         long sleepTime;
         long delta;
         while (running) {
-            Canvas c = null;
+            prevStartTime = startTime;
             startTime = System.currentTimeMillis();
-            delta = System.currentTimeMillis() - startTime;
+            delta = startTime - prevStartTime;
+
+            for(Baka baka: gensoukyou.getBakas()) {
+                baka.tick(delta);
+            }
+
             sleepTime = ticksPS - delta;
             try {
                 sleep(Math.max(10, sleepTime));

@@ -158,8 +158,8 @@ public class WalkerView extends SurfaceView {
     ) {
         canvas.drawBitmap(
                 bmp,
-                baka.getX(),
-                baka.getY(),
+                Math.round(baka.getX()),
+                Math.round(baka.getY()),
                 systemPaint
         );
     }

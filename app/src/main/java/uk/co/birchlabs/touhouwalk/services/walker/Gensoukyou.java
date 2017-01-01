@@ -20,12 +20,12 @@ public class Gensoukyou {
         bakas = new TreeSet<>(new Comparator<Baka>() {
             @Override
             public int compare(Baka baka, Baka t1) {
-                int cmp = Integer.compare(
+                int cmp = Float.compare(
                         baka.getY(),
                         t1.getY()
                 );
                 if (cmp == 0) {
-                    cmp = Integer.compare(
+                    cmp = Float.compare(
                             baka.getX(),
                             t1.getX()
                     );

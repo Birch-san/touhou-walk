@@ -5,24 +5,35 @@ package uk.co.birchlabs.touhouwalk.services.walker;
  */
 
 public class Baka {
-    int x;
-    int y;
+    private float x;
+    private float y;
+
+    private float distancePerSec = 1.0f;
+    private float distancePerMilli = distancePerSec/1000;
+
+    private Bearing bearing;
 
     public Baka(
-            int x,
-            int y
+            float x,
+            float y
     ) {
         this.x = x;
         this.y = y;
+        bearing = Bearing.RIGHT;
     }
 
-    public int getX() {
+    public float getX() {
         return x;
     }
 
-    public int getY() {
+    public float getY() {
         return y;
     }
 
+    public void tick(long delta) {
+        float distanceThisTick = distancePerMilli * delta;
+        x += distanceThisTick * bearing.getXCoefficient();
+        y += distanceThisTick * bearing.getYCoefficient();
+    }
 
 }
