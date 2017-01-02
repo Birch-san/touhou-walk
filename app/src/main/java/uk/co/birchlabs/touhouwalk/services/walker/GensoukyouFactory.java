@@ -13,7 +13,7 @@ import uk.co.birchlabs.touhouwalk.R;
 public class GensoukyouFactory {
     private final int widthPixels;
     private final int heightPixels;
-    private final Resources resources;
+    private final BakaFactory bakaFactory;
 
     public GensoukyouFactory(
             int widthPixels,
@@ -22,7 +22,15 @@ public class GensoukyouFactory {
     ) {
         this.widthPixels = widthPixels;
         this.heightPixels = heightPixels;
-        this.resources = resources;
+        bakaFactory = new BakaFactory(
+                3,
+                4,
+                2,
+                widthPixels,
+                heightPixels,
+                resources,
+                new LinearAnimationTiming(3, 500)
+        );
     }
 
     public Gensoukyou construct() {
@@ -30,32 +38,42 @@ public class GensoukyouFactory {
                 widthPixels,
                 heightPixels
         );
-        final Baka baka = new Baka(
-                0f,
-                0f,
-                new Spritesheet(
-                        getRawBmp(
-                                R.drawable.reimu
-                        ),
-                        3,
-                        4,
-                        2
-                ),
-                new LinearAnimationTiming(3, 500)
+        gensoukyou.addBaka(
+                bakaFactory.construct(
+                        R.drawable.reimu,
+                        SpawnRegion.Top
+                )
         );
-        gensoukyou.addBaka(baka);
+        gensoukyou.addBaka(
+                bakaFactory.construct(
+                        R.drawable.sanae,
+                        SpawnRegion.Bottom
+                )
+        );
+        gensoukyou.addBaka(
+                bakaFactory.construct(
+                        R.drawable.marisa,
+                        SpawnRegion.Bottom
+                )
+        );
+        gensoukyou.addBaka(
+                bakaFactory.construct(
+                        R.drawable.aya,
+                        SpawnRegion.Bottom
+                )
+        );
+        gensoukyou.addBaka(
+                bakaFactory.construct(
+                        R.drawable.chirno,
+                        SpawnRegion.Bottom
+                )
+        );
+        gensoukyou.addBaka(
+                bakaFactory.construct(
+                        R.drawable.kokoro,
+                        SpawnRegion.Bottom
+                )
+        );
         return gensoukyou;
-    }
-
-    private Bitmap getRawBmp(
-            int id
-    ) {
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inScaled = false;
-        return BitmapFactory.decodeResource(
-                resources,
-                id,
-                options
-        );
     }
 }
