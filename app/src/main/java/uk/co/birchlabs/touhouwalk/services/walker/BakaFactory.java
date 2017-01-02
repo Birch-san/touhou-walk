@@ -42,7 +42,9 @@ public class BakaFactory {
             int baka,
             SpawnRegion spawnRegion
     ) {
+        double speed = 15 + Math.random() * 20.0d;
         final Baka nominalBaka = new Baka(
+                Double.valueOf(speed).floatValue(),
                 new Spritesheet(
                         getRawBmp(
                                 baka
@@ -51,7 +53,7 @@ public class BakaFactory {
                         rows,
                         scaleFactor
                 ),
-                new LinearAnimationTiming(3, 500)
+                new LinearAnimationTiming(3, Double.valueOf(500 + speed * 4).intValue())
         );
         if (spawnRegion == SpawnRegion.Bottom) {
             nominalBaka.setY(worldHeight - nominalBaka.getFrame().height());

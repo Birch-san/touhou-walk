@@ -13,8 +13,7 @@ public class Baka {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    private float distancePerSec = 20.0f;
-    private float distancePerMilli = distancePerSec/1000;
+    private final float distancePerMilli;
 
     private long lifetime = 0;
 
@@ -25,10 +24,12 @@ public class Baka {
     private final AnimationTiming animationTiming;
 
     public Baka(
+            float distancePerSec,
             Spritesheet spritesheet,
             AnimationTiming animationTiming
     ) {
         bearing = Bearing.RIGHT;
+        distancePerMilli =  distancePerSec/1000;
         this.spritesheet = spritesheet;
         bearingToAnimation = new BearingToAnimation(
                 new AnimationExtractor(spritesheet).extract(4, 3)
