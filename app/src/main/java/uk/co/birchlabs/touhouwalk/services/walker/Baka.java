@@ -13,7 +13,7 @@ public class Baka {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    private float distancePerSec = 1.0f;
+    private float distancePerSec = 20.0f;
     private float distancePerMilli = distancePerSec/1000;
 
     private final int spriteWidth = 32;
@@ -33,10 +33,10 @@ public class Baka {
             Spritesheet spritesheet,
             AnimationTiming animationTiming
     ) {
-        this.x = x;
-        this.y = y;
         bearing = Bearing.RIGHT;
         this.spritesheet = spritesheet;
+        this.x = x;
+        this.y = y;
         bearingToAnimation = new BearingToAnimation(
                 new AnimationExtractor(spritesheet).extract(4, 3)
         ).getAnimationMap();
@@ -79,15 +79,27 @@ public class Baka {
         return spriteHeight;
     }
 
-    public Rect getDestination() {
-        int roundedX = Math.round(this.x);
-        int roundedY = Math.round(this.y);
+    private int getScaledWidth() {
+        return spriteWidth * spritesheet.getScaleFactor();
+    }
+
+    private int getScaledHeight() {
+        return spriteHeight * spritesheet.getScaleFactor();
+    }
+
+
+    public Rect getDestination(int worldWidth, int worldHeight) {
+        final int scaledWidth = getScaledWidth();
+        final int scaledHeight = getScaledHeight();
+
+        final int finalX = ((Math.round(this.x) + scaledWidth) % (worldWidth + scaledWidth)) - scaledWidth;
+        final int finalY = ((Math.round(this.y) + scaledHeight) % (worldHeight + scaledHeight)) - scaledHeight;
 
         return new Rect(
-                roundedX,
-                roundedY,
-                roundedX + spriteWidth * spritesheet.getScaleFactor(),
-                roundedY + spriteHeight * spritesheet.getScaleFactor()
+                finalX,
+                finalY,
+                finalX + scaledWidth,
+                finalY + scaledHeight
         );
     }
 }

@@ -11,7 +11,7 @@ import android.util.Log;
 public class RenderWorker extends Thread {
     private static final String logTag = RenderWorker.class.getName();
 
-    private static final long FPS = 1;
+    private static final long FPS = 15;
 
     private final WalkerView view;
 

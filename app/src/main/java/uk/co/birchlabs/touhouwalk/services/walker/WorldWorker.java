@@ -10,7 +10,7 @@ import android.util.Log;
 public class WorldWorker extends Thread {
     private static final String logTag = WorldWorker.class.getName();
 
-    private static final long FPS = 1;
+    private static final long FPS = 15;
 
     private final Gensoukyou gensoukyou;
 

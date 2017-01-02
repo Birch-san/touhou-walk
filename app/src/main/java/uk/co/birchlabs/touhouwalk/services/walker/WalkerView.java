@@ -158,7 +158,10 @@ public class WalkerView extends SurfaceView {
         canvas.drawBitmap(
                 baka.getBitmap(),
                 baka.getFrame(),
-                baka.getDestination(),
+                baka.getDestination(
+                        gensoukyou.getWidthPixels(),
+                        gensoukyou.getHeightPixels()
+                ),
                 systemPaint
         );
 

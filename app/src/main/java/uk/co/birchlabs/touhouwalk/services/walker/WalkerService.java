@@ -8,9 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by birch on 08/10/2016.
