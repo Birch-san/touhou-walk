@@ -8,11 +8,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
-import uk.co.birchlabs.touhouwalk.R;
 
 /**
  * Created by birch on 08/10/2016.
@@ -20,6 +19,7 @@ import uk.co.birchlabs.touhouwalk.R;
 
 public class WalkerView extends SurfaceView {
     private Paint systemPaint;
+    private Paint systemPaint2;
     private SurfaceHolder holder;
 //    private DisplayMetrics metrics;
 //    private WindowManager wm;
@@ -84,9 +84,11 @@ public class WalkerView extends SurfaceView {
 
 
         systemPaint = new Paint();
-//        systemPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
-//        systemPaint.setColor(Color.TRANSPARENT);
-//        systemPaint.setAlpha(75);
+        systemPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+        systemPaint.setColor(Color.TRANSPARENT);
+        systemPaint.setAlpha(75);
+
+        systemPaint2 = new Paint();
 
 //        updateDisplay();
 
@@ -132,16 +134,17 @@ public class WalkerView extends SurfaceView {
         super.onDraw(canvas);
 
 //        wm.getDefaultDisplay().getMetrics(metrics);
-
-//        canvas.drawRect(
-//                0,
-//                0,
-//                getWidth(),
-//                getHeight(),
-//                systemPaint
-//        );
-//        canvas.drawColor(Color.BLACK);
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+        canvas.drawRect(
+                0,
+                0,
+                getWidth(),
+                getHeight(),
+                systemPaint
+        );
+//        canvas.drawColor(Color.BLACK);
+//        canvas.drawColor(Color.RED);
 
         for(Baka baka : gensoukyou.getBakas()) {
             drawBaka(
@@ -162,7 +165,7 @@ public class WalkerView extends SurfaceView {
                         gensoukyou.getWidthPixels(),
                         gensoukyou.getHeightPixels()
                 ),
-                systemPaint
+                systemPaint2
         );
 
 //        canvas.drawBitmap(

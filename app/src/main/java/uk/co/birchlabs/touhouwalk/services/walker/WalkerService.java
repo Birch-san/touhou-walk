@@ -103,12 +103,6 @@ public class WalkerService extends Service {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        view.setRotation(
-                Orientation.toOrientation(newConfig) == Orientation.Landscape
-                        ? 90.0f
-                        : 0.0f
-        );
-
         serviceEventHandler.onConfigurationChanged(newConfig);
     }
 }
