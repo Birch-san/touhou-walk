@@ -2,11 +2,13 @@ package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -18,7 +20,7 @@ public class WalkerService extends Service {
     private WalkerView view;
     private RenderWorker renderWorker;
     private WorldWorker worldWorker;
-    private ServiceLifecycleCallback serviceLifecycleCallback;
+    private ServiceEventHandler serviceEventHandler;
 
     @Nullable
     @Override
@@ -63,9 +65,9 @@ public class WalkerService extends Service {
         renderWorker = new RenderWorker(view);
         worldWorker = new WorldWorker(gensoukyou);
 
-        serviceLifecycleCallback = new ServiceLifecycleCallbackDelegator(
+        serviceEventHandler = new ServiceEventHandlerDelegator(
                 Arrays.asList(
-                        worldWorker.getServiceLifecycleCallback(),
+                        worldWorker.getServiceEventHandler(),
                         renderWorker.getServiceLifecycleCallback()
                 )
         );
@@ -91,9 +93,16 @@ public class WalkerService extends Service {
     public void onDestroy() {
         super.onDestroy();
 
-        serviceLifecycleCallback.onDestroyed();
+        serviceEventHandler.onDestroyed();
 
         ((WindowManager)getSystemService(WINDOW_SERVICE)).removeView(view);
         view = null;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        serviceEventHandler.onConfigurationChanged(newConfig);
     }
 }

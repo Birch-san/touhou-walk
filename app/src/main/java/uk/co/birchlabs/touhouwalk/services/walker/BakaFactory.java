@@ -4,8 +4,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import uk.co.birchlabs.touhouwalk.R;
-
 /**
  * Created by birch on 02/01/2017.
  */
@@ -15,8 +13,7 @@ public class BakaFactory {
     private final int columns;
     private final int rows;
     private final int scaleFactor;
-    private final int worldWidth;
-    private final int worldHeight;
+    private final Gensoukyou gensoukyou;
     private final Resources resources;
     private final AnimationTiming animationTiming;
 
@@ -24,16 +21,14 @@ public class BakaFactory {
             int columns,
             int rows,
             int scaleFactor,
-            int worldWidth,
-            int worldHeight,
+            Gensoukyou gensoukyou,
             Resources resources,
             AnimationTiming animationTiming
     ) {
         this.columns = columns;
         this.rows = rows;
         this.scaleFactor = scaleFactor;
-        this.worldWidth = worldWidth;
-        this.worldHeight = worldHeight;
+        this.gensoukyou = gensoukyou;
         this.resources = resources;
         this.animationTiming = animationTiming;
     }
@@ -56,11 +51,11 @@ public class BakaFactory {
                 new LinearAnimationTiming(3, Double.valueOf(500 + speed * 4).intValue())
         );
         if (spawnRegion == SpawnRegion.Bottom) {
-            nominalBaka.setY(worldHeight - nominalBaka.getFrame().height());
+            nominalBaka.setY(gensoukyou.getHeightPixels() - nominalBaka.getFrame().height());
         }
         nominalBaka.setX(
                 Double.valueOf(
-                        - nominalBaka.getFrame().width() + Math.random() * (worldWidth + nominalBaka.getFrame().width())
+                        - nominalBaka.getFrame().width() + Math.random() * (gensoukyou.getWidthPixels() + nominalBaka.getFrame().width())
                 ).floatValue()
         );
         return nominalBaka;

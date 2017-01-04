@@ -1,6 +1,7 @@
 package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.util.Log;
 
@@ -33,8 +34,8 @@ public class RenderWorker extends Thread {
         };
     }
 
-    public ServiceLifecycleCallback getServiceLifecycleCallback() {
-        return new ServiceLifecycleCallback() {
+    public ServiceEventHandler getServiceLifecycleCallback() {
+        return new ServiceEventHandler() {
             @Override
             public void onDestroyed() {
                 running = false;
@@ -47,6 +48,10 @@ public class RenderWorker extends Thread {
                         Log.i(logTag, "Interrupted during join", e);
                     }
                 }
+            }
+
+            @Override
+            public void onConfigurationChanged(Configuration newConfig) {
             }
         };
     }

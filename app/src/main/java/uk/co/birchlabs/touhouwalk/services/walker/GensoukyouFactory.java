@@ -1,8 +1,6 @@
 package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 import uk.co.birchlabs.touhouwalk.R;
 
@@ -13,7 +11,8 @@ import uk.co.birchlabs.touhouwalk.R;
 public class GensoukyouFactory {
     private final int widthPixels;
     private final int heightPixels;
-    private final BakaFactory bakaFactory;
+    private final Orientation initOrientation;
+    private final Resources resources;
 
     public GensoukyouFactory(
             int widthPixels,
@@ -22,22 +21,26 @@ public class GensoukyouFactory {
     ) {
         this.widthPixels = widthPixels;
         this.heightPixels = heightPixels;
-        bakaFactory = new BakaFactory(
-                3,
-                4,
-                2,
-                widthPixels,
-                heightPixels,
-                resources,
-                new LinearAnimationTiming(3, 500)
-        );
+        initOrientation = Orientation.toOrientation(resources.getConfiguration());
+        this.resources = resources;
     }
 
     public Gensoukyou construct() {
         final Gensoukyou gensoukyou = new Gensoukyou(
+                initOrientation,
                 widthPixels,
                 heightPixels
         );
+
+        final BakaFactory bakaFactory = new BakaFactory(
+                3,
+                4,
+                2,
+                gensoukyou,
+                resources,
+                new LinearAnimationTiming(3, 500)
+        );
+
         gensoukyou.addBaka(
                 bakaFactory.construct(
                         R.drawable.reimu,

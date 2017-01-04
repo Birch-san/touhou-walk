@@ -1,7 +1,8 @@
 package uk.co.birchlabs.touhouwalk.services.walker;
 
-import android.graphics.Canvas;
+import android.content.res.Configuration;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by birch on 01/01/2017.
@@ -32,8 +33,8 @@ public class WorldWorker extends Thread {
         };
     }
 
-    public ServiceLifecycleCallback getServiceLifecycleCallback() {
-        return new ServiceLifecycleCallback() {
+    public ServiceEventHandler getServiceEventHandler() {
+        return new ServiceEventHandler() {
             @Override
             public void onDestroyed() {
                 running = false;
@@ -46,6 +47,10 @@ public class WorldWorker extends Thread {
                         Log.i(logTag, "Interrupted during join", e);
                     }
                 }
+            }
+
+            @Override
+            public void onConfigurationChanged(Configuration newConfig) {
             }
         };
     }
