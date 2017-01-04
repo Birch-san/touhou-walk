@@ -41,15 +41,12 @@ public class WalkerService extends Service {
 
         view = new WalkerView(this);
         final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY, // TYPE_SYSTEM_ALERT is denied in apiLevel >=19
-                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 PixelFormat.TRANSLUCENT
         );
         view.setFitsSystemWindows(false); // allow us to draw over status bar, navigation bar
-        params.width = metrics.widthPixels;
-        params.height = metrics.heightPixels;
+//        params.width = params.height = Math.max(metrics.widthPixels, metrics.heightPixels);
         params.setTitle("Touhou");
 
         wm.addView(view, params);
