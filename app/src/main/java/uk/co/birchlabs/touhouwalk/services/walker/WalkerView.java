@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 public class WalkerView extends SurfaceView {
     private Paint systemPaint;
-    private Paint systemPaint2;
+//    private Paint systemPaint2;
     private SurfaceHolder holder;
 //    private DisplayMetrics metrics;
 //    private WindowManager wm;
@@ -86,26 +86,12 @@ public class WalkerView extends SurfaceView {
 
 
         systemPaint = new Paint();
-        systemPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
-        systemPaint.setColor(Color.TRANSPARENT);
-        systemPaint.setAlpha(75);
-
-        systemPaint2 = new Paint();
+//        systemPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+//        systemPaint.setColor(Color.TRANSPARENT);
+//        systemPaint.setAlpha(75);
 
 //        updateDisplay();
 
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        // Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this.getContext(), "landscape", Toast.LENGTH_SHORT).show();
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            Toast.makeText(this.getContext(), "portrait", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private Bitmap getScaledBmp(int id) {
@@ -150,13 +136,13 @@ public class WalkerView extends SurfaceView {
 //        wm.getDefaultDisplay().getMetrics(metrics);
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
-        canvas.drawRect(
-                0,
-                0,
-                getWidth(),
-                getHeight(),
-                systemPaint
-        );
+//        canvas.drawRect(
+//                0,
+//                0,
+//                getWidth(),
+//                getHeight(),
+//                systemPaint
+//        );
 //        canvas.drawColor(Color.BLACK);
 //        canvas.drawColor(Color.RED);
 
@@ -179,7 +165,7 @@ public class WalkerView extends SurfaceView {
                         gensoukyou.getWidthPixels(),
                         gensoukyou.getHeightPixels()
                 ),
-                systemPaint2
+                systemPaint
         );
 
 //        canvas.drawBitmap(
