@@ -34,7 +34,7 @@ public class RenderWorker extends Thread {
         };
     }
 
-    public ServiceEventHandler getServiceLifecycleCallback() {
+    public ServiceEventHandler getServiceEventHandler() {
         return new ServiceEventHandler() {
             @Override
             public void onDestroyed() {

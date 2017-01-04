@@ -77,7 +77,7 @@ public class Gensoukyou {
 
             @Override
             public void onConfigurationChanged(Configuration newConfig) {
-                final Orientation prevOrientation = Orientation.toOrientation(newConfig);
+                final Orientation prevOrientation = Gensoukyou.this.orientation;
                 Gensoukyou.this.orientation = Orientation.toOrientation(newConfig);
 
                 if (EnumSet.of(Orientation.Square, Orientation.Undefined).contains(prevOrientation)) {

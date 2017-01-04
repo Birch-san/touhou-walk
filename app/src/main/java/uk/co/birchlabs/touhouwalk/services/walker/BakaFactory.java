@@ -37,7 +37,7 @@ public class BakaFactory {
             int baka,
             SpawnRegion spawnRegion
     ) {
-        double speed = 15 + Math.random() * 20.0d;
+        double speed = 15 + Math.random() * 20.0d+100;
         final Baka nominalBaka = new Baka(
                 Double.valueOf(speed).floatValue(),
                 new Spritesheet(

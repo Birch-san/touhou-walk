@@ -8,7 +8,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -68,7 +67,8 @@ public class WalkerService extends Service {
         serviceEventHandler = new ServiceEventHandlerDelegator(
                 Arrays.asList(
                         worldWorker.getServiceEventHandler(),
-                        renderWorker.getServiceLifecycleCallback()
+                        renderWorker.getServiceEventHandler(),
+                        gensoukyou.getServiceEventHandler()
                 )
         );
 
@@ -102,6 +102,12 @@ public class WalkerService extends Service {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+
+        view.setRotation(
+                Orientation.toOrientation(newConfig) == Orientation.Landscape
+                        ? 90.0f
+                        : 0.0f
+        );
 
         serviceEventHandler.onConfigurationChanged(newConfig);
     }
