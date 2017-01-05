@@ -1,7 +1,6 @@
 package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -9,11 +8,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.Toast;
 
 /**
  * Created by birch on 08/10/2016.
@@ -29,6 +26,7 @@ public class WalkerView extends SurfaceView {
     private Bitmap bmp;
     private Gensoukyou gensoukyou;
     private final int scaleFactor = 2;
+    private ViewEventHandler viewEventHandler;
 
 //    private final Context c;
 
@@ -43,13 +41,14 @@ public class WalkerView extends SurfaceView {
     }
 
     public void init(
-            final ViewLifecycleCallback viewLifecycleCallback,
+            final ViewEventHandler viewEventHandler,
             final Gensoukyou gensoukyou
     ) {
 //        metrics = new DisplayMetrics();
 //        wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
 //        wm.getDefaultDisplay().getMetrics(metrics);
 
+        this.viewEventHandler = viewEventHandler;
         this.gensoukyou = gensoukyou;
 
         setZOrderOnTop(true);
@@ -67,7 +66,7 @@ public class WalkerView extends SurfaceView {
 //                Canvas c = holder.lockCanvas(null);
 //                onDraw(c);
 //                holder.unlockCanvasAndPost(c);
-                viewLifecycleCallback.onReady();
+                viewEventHandler.onReady();
             }
 
             @Override
@@ -127,6 +126,14 @@ public class WalkerView extends SurfaceView {
         requestLayout();
         // or
         // invalidate();
+    }
+
+    @Override
+    public void onSizeChanged(int w, int h, int oldw, int oldh) {
+        if (viewEventHandler != null) {
+            viewEventHandler.onSizeChanged(w, h, oldw, oldh);
+        }
+//        Toast.makeText(getContext(), String.format("%d*%d -> %d*%d", oldw, oldh, w,h), Toast.LENGTH_SHORT).show();
     }
 
     @Override

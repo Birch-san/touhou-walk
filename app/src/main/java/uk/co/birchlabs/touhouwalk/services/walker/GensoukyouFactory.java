@@ -11,7 +11,6 @@ import uk.co.birchlabs.touhouwalk.R;
 public class GensoukyouFactory {
     private final int widthPixels;
     private final int heightPixels;
-    private final Orientation initOrientation;
     private final Resources resources;
 
     public GensoukyouFactory(
@@ -21,13 +20,11 @@ public class GensoukyouFactory {
     ) {
         this.widthPixels = widthPixels;
         this.heightPixels = heightPixels;
-        initOrientation = Orientation.toOrientation(resources.getConfiguration());
         this.resources = resources;
     }
 
     public Gensoukyou construct() {
         final Gensoukyou gensoukyou = new Gensoukyou(
-                initOrientation,
                 widthPixels,
                 heightPixels
         );

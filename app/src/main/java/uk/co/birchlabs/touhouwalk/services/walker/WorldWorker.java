@@ -2,7 +2,6 @@ package uk.co.birchlabs.touhouwalk.services.walker;
 
 import android.content.res.Configuration;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * Created by birch on 01/01/2017.
@@ -23,12 +22,16 @@ public class WorldWorker extends Thread {
         this.gensoukyou = gensoukyou;
     }
 
-    public ViewLifecycleCallback getViewLifecycleCallback() {
-        return new ViewLifecycleCallback() {
+    public ViewEventHandler getViewEventHandler() {
+        return new ViewEventHandler() {
             @Override
             public void onReady() {
                 running = true;
                 WorldWorker.this.start();
+            }
+
+            @Override
+            public void onSizeChanged(int w, int h, int oldw, int oldh) {
             }
         };
     }

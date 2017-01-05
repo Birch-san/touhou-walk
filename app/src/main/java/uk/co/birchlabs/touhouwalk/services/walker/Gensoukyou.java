@@ -15,14 +15,11 @@ public class Gensoukyou {
     private int widthPixels;
     private int heightPixels;
     private final Set<Baka> bakas;
-    private Orientation orientation;
 
     public Gensoukyou(
-            Orientation orientation,
             int widthPixels,
             int heightPixels
     ) {
-        this.orientation = orientation;
         bakas = new TreeSet<>(new Comparator<Baka>() {
             @Override
             public int compare(Baka baka, Baka t1) {
@@ -68,33 +65,16 @@ public class Gensoukyou {
         return heightPixels;
     }
 
-    public ServiceEventHandler getServiceEventHandler() {
-        return new ServiceEventHandler() {
+    public ViewEventHandler getViewEventHandler() {
+        return new ViewEventHandler() {
             @Override
-            public void onDestroyed() {
-
+            public void onReady() {
             }
 
             @Override
-            public void onConfigurationChanged(Configuration newConfig) {
-                final Orientation prevOrientation = Gensoukyou.this.orientation;
-                Gensoukyou.this.orientation = Orientation.toOrientation(newConfig);
-
-                if (EnumSet.of(Orientation.Square, Orientation.Undefined).contains(prevOrientation)) {
-                    // let's not handle these weird cases
-                    return;
-                }
-
-                if (EnumSet.of(Orientation.Square, Orientation.Undefined).contains(Gensoukyou.this.orientation)) {
-                    // let's not handle these weird cases
-                    return;
-                }
-
-                if (prevOrientation != Gensoukyou.this.orientation) {
-                    final int temp = widthPixels;
-                    widthPixels = heightPixels;
-                    heightPixels = temp;
-                }
+            public void onSizeChanged(int w, int h, int oldw, int oldh) {
+                widthPixels = w;
+                heightPixels = h;
             }
         };
     }

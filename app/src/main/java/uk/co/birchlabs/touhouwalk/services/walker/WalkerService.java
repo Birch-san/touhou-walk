@@ -64,16 +64,16 @@ public class WalkerService extends Service {
         serviceEventHandler = new ServiceEventHandlerDelegator(
                 Arrays.asList(
                         worldWorker.getServiceEventHandler(),
-                        renderWorker.getServiceEventHandler(),
-                        gensoukyou.getServiceEventHandler()
+                        renderWorker.getServiceEventHandler()
                 )
         );
 
         view.init(
                 new ViewLifeCycleCallbackDelegator(
                         Arrays.asList(
-                                worldWorker.getViewLifecycleCallback(),
-                                renderWorker.getViewLifecycleCallback()
+                                worldWorker.getViewEventHandler(),
+                                renderWorker.getViewEventHandler(),
+                                gensoukyou.getViewEventHandler()
                         )
                 ),
                 gensoukyou

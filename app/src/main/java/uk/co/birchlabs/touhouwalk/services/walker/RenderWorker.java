@@ -24,12 +24,16 @@ public class RenderWorker extends Thread {
         this.view = view;
     }
 
-    public ViewLifecycleCallback getViewLifecycleCallback() {
-        return new ViewLifecycleCallback() {
+    public ViewEventHandler getViewEventHandler() {
+        return new ViewEventHandler() {
             @Override
             public void onReady() {
                 running = true;
                 RenderWorker.this.start();
+            }
+
+            @Override
+            public void onSizeChanged(int w, int h, int oldw, int oldh) {
             }
         };
     }
