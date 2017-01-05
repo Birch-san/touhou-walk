@@ -23,10 +23,13 @@ public class Baka {
     private final Map<Bearing, Animation> bearingToAnimation;
     private final AnimationTiming animationTiming;
 
+    private final BakaYPositionStrategy yPositionStrategy;
+
     public Baka(
             float distancePerSec,
             Spritesheet spritesheet,
-            AnimationTiming animationTiming
+            AnimationTiming animationTiming,
+            AxisOrientation yAxisOrientation
     ) {
         bearing = Bearing.RIGHT;
         distancePerMilli =  distancePerSec/1000;
@@ -35,6 +38,7 @@ public class Baka {
                 new AnimationExtractor(spritesheet).extract(4, 3)
         ).getAnimationMap();
         this.animationTiming = animationTiming;
+        yPositionStrategy = BakaYPositionStrategyFactory.getStrategy(yAxisOrientation);
     }
 
     public void tick(long delta) {
@@ -78,7 +82,11 @@ public class Baka {
         final int scaledHeight = getFrame().height();
 
         final int finalX = ((Math.round(this.x) + scaledWidth) % (worldWidth + scaledWidth)) - scaledWidth;
-        final int finalY = ((Math.round(this.y) + scaledHeight) % (worldHeight + scaledHeight)) - scaledHeight;
+        final int finalY = yPositionStrategy.getYDest(
+                worldHeight,
+                this.y,
+                scaledHeight
+        );
 
         return new Rect(
                 finalX,

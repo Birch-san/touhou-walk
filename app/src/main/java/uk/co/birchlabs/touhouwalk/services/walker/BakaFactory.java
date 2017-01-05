@@ -48,11 +48,12 @@ public class BakaFactory {
                         rows,
                         scaleFactor
                 ),
-                new LinearAnimationTiming(3, Double.valueOf(500 + speed * 4).intValue())
+                new LinearAnimationTiming(3, Double.valueOf(500 + speed * 4).intValue()),
+                spawnRegion.toYAxisOrientation()
         );
-        if (spawnRegion == SpawnRegion.Bottom) {
-            nominalBaka.setY(gensoukyou.getHeightPixels() - nominalBaka.getFrame().height());
-        }
+//        if (spawnRegion == SpawnRegion.Bottom) {
+//            nominalBaka.setY(gensoukyou.getHeightPixels() - nominalBaka.getFrame().height());
+//        }
         nominalBaka.setX(
                 Double.valueOf(
                         - nominalBaka.getFrame().width() + Math.random() * (gensoukyou.getWidthPixels() + nominalBaka.getFrame().width())
