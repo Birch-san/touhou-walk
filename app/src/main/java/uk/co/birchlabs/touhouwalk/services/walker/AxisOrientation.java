@@ -6,5 +6,5 @@ package uk.co.birchlabs.touhouwalk.services.walker;
 
 public enum AxisOrientation {
     Standard,
-    Inverted;
+    Inverted
 }
