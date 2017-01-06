@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startServiceIfPossible() {
+        if (isMyServiceRunning(WalkerService.class)) {
+            return;
+        }
         if (Settings.canDrawOverlays(this)) {
             // continue here - permission was granted
             startService();
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startService() {
         startService(getServiceIntent());
+        ((android.widget.Button)findViewById(R.id.start_button)).setText(R.string.restart);
     }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
@@ -71,8 +75,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void stopServiceIfPossible() {
         if (isMyServiceRunning(WalkerService.class)) {
-            stopService(getServiceIntent());
+            onDestroyService(stopService(getServiceIntent()));
         }
+    }
+
+    private void onDestroyService(boolean success) {
+        if (!success) {
+            return;
+        }
+        ((android.widget.Button)findViewById(R.id.start_button)).setText(R.string.start);
     }
 
     @Override
