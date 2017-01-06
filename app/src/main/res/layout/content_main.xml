@@ -38,17 +38,40 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <NumberPicker
-                android:id="@+id/sprite_scale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
             <TextView
                 android:text="@string/sprite_scale"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                />
+
+            <NumberPicker
+                android:id="@+id/sprite_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/spawn_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                />
+
+            <CheckBox android:id="@+id/spawn_checkbox_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spawn_checkbox_top"
+                />
+            <CheckBox android:id="@+id/spawn_checkbox_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spawn_checkbox_bottom"
                 />
         </TableRow>
 

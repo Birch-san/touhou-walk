@@ -6,4 +6,8 @@
     <string name="restart">Restart</string>
     <string name="no_privilege">Privilege was not granted to this app to draw full-screen. Cannot start service.</string>
     <string name="sprite_scale">Sprite size</string>
+    <string name="spawn_checkbox">Spawn Regions</string>
+    <string name="spawn_checkbox_top">Top</string>
+    <string name="spawn_checkbox_bottom">Bottom</string>
+    <string name="spawn_checkbox_at_least">At least one spawn region must be enabled.</string>
 </resources>

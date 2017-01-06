@@ -14,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
@@ -113,6 +115,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.stop_button).setEnabled(true);
     }
 
+    private boolean atLeastOneSpawnRegionChecked() {
+        return ((CheckBox) findViewById(R.id.spawn_checkbox_top)).isChecked()
+                ||((CheckBox) findViewById(R.id.spawn_checkbox_bottom)).isChecked();
+    }
+
     private void initForm() {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         final SharedPreferences.Editor editor = prefs.edit();
@@ -143,6 +150,28 @@ public class MainActivity extends AppCompatActivity {
                 stopServiceIfRunning();
             }
         });
+
+        final CheckBox spawnCheckboxTop = (CheckBox) findViewById(R.id.spawn_checkbox_top);
+        final CheckBox spawnCheckboxBottom = (CheckBox) findViewById(R.id.spawn_checkbox_bottom);
+
+        spawnCheckboxTop.setChecked(prefs.getBoolean(Variables.spawn_checkbox_top, true));
+        spawnCheckboxBottom.setChecked(prefs.getBoolean(Variables.spawn_checkbox_bottom, true));
+
+        final CompoundButton.OnCheckedChangeListener spawnButtonCheckedHandler = new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (!atLeastOneSpawnRegionChecked()) {
+                    Toast.makeText(MainActivity.this, R.string.spawn_checkbox_at_least, Toast.LENGTH_LONG).show();
+                    compoundButton.setChecked(!compoundButton.isChecked());
+                    return;
+                }
+                editor.putBoolean(Variables.getSpawnCheckboxVar(compoundButton.getId()), b);
+                editor.apply();
+            }
+        };
+
+        spawnCheckboxBottom.setOnCheckedChangeListener(spawnButtonCheckedHandler);
+        spawnCheckboxTop.setOnCheckedChangeListener(spawnButtonCheckedHandler);
     }
 
     @Override
