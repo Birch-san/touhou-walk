@@ -5,4 +5,5 @@
     <string name="start">Start</string>
     <string name="restart">Restart</string>
     <string name="no_privilege">Privilege was not granted to this app to draw full-screen. Cannot start service.</string>
+    <string name="sprite_scale">Sprite size</string>
 </resources>

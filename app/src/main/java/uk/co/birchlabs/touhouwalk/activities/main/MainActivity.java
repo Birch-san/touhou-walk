@@ -1,19 +1,24 @@
 package uk.co.birchlabs.touhouwalk.activities.main;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import uk.co.birchlabs.touhouwalk.R;
+import uk.co.birchlabs.touhouwalk.global.Variables;
 import uk.co.birchlabs.touhouwalk.services.walker.WalkerService;
 
 public class MainActivity extends AppCompatActivity {
@@ -108,15 +113,23 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.stop_button).setEnabled(true);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    private void initForm() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final SharedPreferences.Editor editor = prefs.edit();
 
-        stopServiceIfRunning();
-        configureFormGivenServiceNotRunning();
+        final NumberPicker spriteScale = (NumberPicker) findViewById(R.id.sprite_scale);
+        spriteScale.setMinValue(1);
+        spriteScale.setMaxValue(8);
+        spriteScale.setValue(prefs.getInt(Variables.sprite_scale, 2));
+        spriteScale.setWrapSelectorWheel(false);
+
+        spriteScale.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal){
+                editor.putInt(Variables.sprite_scale, newVal);
+                editor.apply();
+            }
+        });
 
         findViewById(R.id.start_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +143,19 @@ public class MainActivity extends AppCompatActivity {
                 stopServiceIfRunning();
             }
         });
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+
+        stopServiceIfRunning();
+
+        initForm();
+        configureFormGivenServiceNotRunning();
     }
 
     @Override
