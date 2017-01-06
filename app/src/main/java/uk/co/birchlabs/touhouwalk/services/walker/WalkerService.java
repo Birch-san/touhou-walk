@@ -54,7 +54,7 @@ public class WalkerService extends Service {
         final GensoukyouFactory gensoukyouFactory = new GensoukyouFactory(
                 metrics.widthPixels,
                 metrics.heightPixels,
-                getResources()
+                getApplicationContext()
         );
         final Gensoukyou gensoukyou = gensoukyouFactory.construct();
 

@@ -1,8 +1,12 @@
 package uk.co.birchlabs.touhouwalk.services.walker;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.preference.PreferenceManager;
 
 import uk.co.birchlabs.touhouwalk.R;
+import uk.co.birchlabs.touhouwalk.global.Variables;
 
 /**
  * Created by birch on 01/01/2017.
@@ -11,19 +15,21 @@ import uk.co.birchlabs.touhouwalk.R;
 public class GensoukyouFactory {
     private final int widthPixels;
     private final int heightPixels;
-    private final Resources resources;
+    private final Context context;
 
     public GensoukyouFactory(
             int widthPixels,
             int heightPixels,
-            Resources resources
+            Context context
     ) {
         this.widthPixels = widthPixels;
         this.heightPixels = heightPixels;
-        this.resources = resources;
+        this.context = context;
     }
 
     public Gensoukyou construct() {
+        final Resources resources = context.getResources();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         final Gensoukyou gensoukyou = new Gensoukyou(
                 widthPixels,
                 heightPixels
@@ -32,7 +38,7 @@ public class GensoukyouFactory {
         final BakaFactory bakaFactory = new BakaFactory(
                 3,
                 4,
-                2,
+                prefs.getInt(Variables.sprite_scale, 2),
                 gensoukyou,
                 resources,
                 new LinearAnimationTiming(3, 500)
