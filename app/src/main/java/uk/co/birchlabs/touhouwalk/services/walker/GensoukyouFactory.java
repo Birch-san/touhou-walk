@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import uk.co.birchlabs.touhouwalk.R;
 import uk.co.birchlabs.touhouwalk.global.Variables;
 
@@ -17,6 +21,11 @@ public class GensoukyouFactory {
     private final int heightPixels;
     private final Context context;
 
+    private final List<SpawnRegion> spawnRegions;
+    private final int spriteScale;
+
+    private final Random randomGenerator;
+
     public GensoukyouFactory(
             int widthPixels,
             int heightPixels,
@@ -25,11 +34,25 @@ public class GensoukyouFactory {
         this.widthPixels = widthPixels;
         this.heightPixels = heightPixels;
         this.context = context;
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        spriteScale = prefs.getInt(Variables.sprite_scale, 2);
+
+        spawnRegions = new ArrayList<>();
+        if (prefs.getBoolean(Variables.spawn_checkbox_top, true)) {
+            spawnRegions.add(SpawnRegion.Top);
+        }
+        if (prefs.getBoolean(Variables.spawn_checkbox_bottom, true)) {
+            spawnRegions.add(SpawnRegion.Bottom);
+        }
+
+        randomGenerator = new Random();
     }
 
     public Gensoukyou construct() {
         final Resources resources = context.getResources();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         final Gensoukyou gensoukyou = new Gensoukyou(
                 widthPixels,
                 heightPixels
@@ -38,48 +61,58 @@ public class GensoukyouFactory {
         final BakaFactory bakaFactory = new BakaFactory(
                 3,
                 4,
-                prefs.getInt(Variables.sprite_scale, 2),
+                spriteScale,
                 gensoukyou,
                 resources,
                 new LinearAnimationTiming(3, 500)
         );
 
         gensoukyou.addBaka(
-                bakaFactory.construct(
+                constructBaka(
                         R.drawable.reimu,
-                        SpawnRegion.Top
+                        bakaFactory
                 )
         );
         gensoukyou.addBaka(
-                bakaFactory.construct(
+                constructBaka(
                         R.drawable.sanae,
-                        SpawnRegion.Bottom
+                        bakaFactory
                 )
         );
         gensoukyou.addBaka(
-                bakaFactory.construct(
+                constructBaka(
                         R.drawable.marisa,
-                        SpawnRegion.Bottom
+                        bakaFactory
                 )
         );
         gensoukyou.addBaka(
-                bakaFactory.construct(
+                constructBaka(
                         R.drawable.aya,
-                        SpawnRegion.Bottom
+                        bakaFactory
                 )
         );
         gensoukyou.addBaka(
-                bakaFactory.construct(
+                constructBaka(
                         R.drawable.chirno,
-                        SpawnRegion.Bottom
+                        bakaFactory
                 )
         );
         gensoukyou.addBaka(
-                bakaFactory.construct(
+                constructBaka(
                         R.drawable.kokoro,
-                        SpawnRegion.Bottom
+                        bakaFactory
                 )
         );
         return gensoukyou;
+    }
+
+    private Baka constructBaka(
+            int baka,
+            BakaFactory bakaFactory
+    ) {
+        return bakaFactory.construct(
+                baka,
+                spawnRegions.get(randomGenerator.nextInt(spawnRegions.size()))
+        );
     }
 }
