@@ -59,8 +59,6 @@ public class GensoukyouFactory {
         );
 
         final BakaFactory bakaFactory = new BakaFactory(
-                3,
-                4,
                 spriteScale,
                 gensoukyou,
                 resources,

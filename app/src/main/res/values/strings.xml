@@ -10,4 +10,5 @@
     <string name="spawn_checkbox_top">Top</string>
     <string name="spawn_checkbox_bottom">Bottom</string>
     <string name="spawn_checkbox_at_least">At least one spawn region must be enabled.</string>
+    <string name="baka_content_description">Portrait</string>
 </resources>

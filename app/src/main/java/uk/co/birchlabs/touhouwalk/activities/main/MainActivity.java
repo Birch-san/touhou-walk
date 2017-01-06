@@ -14,12 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import uk.co.birchlabs.touhouwalk.R;
+import uk.co.birchlabs.touhouwalk.global.MikoDatabase;
 import uk.co.birchlabs.touhouwalk.global.Variables;
 import uk.co.birchlabs.touhouwalk.services.walker.WalkerService;
 
@@ -172,6 +175,15 @@ public class MainActivity extends AppCompatActivity {
 
         spawnCheckboxBottom.setOnCheckedChangeListener(spawnButtonCheckedHandler);
         spawnCheckboxTop.setOnCheckedChangeListener(spawnButtonCheckedHandler);
+
+        final ListView listView = (ListView) findViewById(R.id.baka_list);
+
+        listView.setAdapter(
+                new BakaArrayAdapter(
+                        listView.getContext(),
+                        MikoDatabase.getResourceIDs()
+                )
+        );
     }
 
     @Override

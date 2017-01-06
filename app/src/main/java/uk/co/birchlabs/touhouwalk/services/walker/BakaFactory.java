@@ -4,29 +4,25 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import uk.co.birchlabs.touhouwalk.global.BitmapUtils;
+
 /**
  * Created by birch on 02/01/2017.
  */
 
 public class BakaFactory {
 
-    private final int columns;
-    private final int rows;
     private final int scaleFactor;
     private final Gensoukyou gensoukyou;
     private final Resources resources;
     private final AnimationTiming animationTiming;
 
     public BakaFactory(
-            int columns,
-            int rows,
             int scaleFactor,
             Gensoukyou gensoukyou,
             Resources resources,
             AnimationTiming animationTiming
     ) {
-        this.columns = columns;
-        this.rows = rows;
         this.scaleFactor = scaleFactor;
         this.gensoukyou = gensoukyou;
         this.resources = resources;
@@ -44,8 +40,6 @@ public class BakaFactory {
                         getRawBmp(
                                 baka
                         ),
-                        columns,
-                        rows,
                         scaleFactor
                 ),
                 new LinearAnimationTiming(3, Double.valueOf(500 + speed * 4).intValue()),
@@ -65,12 +59,9 @@ public class BakaFactory {
     private Bitmap getRawBmp(
             int id
     ) {
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inScaled = false;
-        return BitmapFactory.decodeResource(
-                resources,
+        return BitmapUtils.getRawBmp(
                 id,
-                options
+                resources
         );
     }
 
