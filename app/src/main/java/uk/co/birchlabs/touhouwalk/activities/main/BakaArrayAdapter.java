@@ -74,7 +74,7 @@ public class BakaArrayAdapter extends ArrayAdapter<Integer> {
 
         textView.setText(
                 String.format(
-                        "%s (%s)",
+                        "%s\n%s",
                         localName,
                         foreignName
                 )
