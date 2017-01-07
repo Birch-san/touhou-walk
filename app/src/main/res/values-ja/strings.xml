@@ -70,7 +70,7 @@
     <string name="miko_name_ririka"></string>
     <string name="miko_name_rumia"></string>
     <string name="miko_name_runasa"></string>
-    <string name="miko_name_sakuya"></string>
+    <string name="miko_name_sakuya">十六夜 咲夜</string>
     <string name="miko_name_sanae">東風谷 早苗</string>
     <string name="miko_name_satori"></string>
     <string name="miko_name_seiga"></string>
@@ -90,11 +90,11 @@
     <string name="miko_name_udonge"></string>
     <string name="miko_name_utsuho">霊烏路 空</string>
     <string name="miko_name_wakasagi"></string>
-    <string name="miko_name_yakumoyukari"></string>
+    <string name="miko_name_yakumoyukari">八雲 紫</string>
     <string name="miko_name_yamame"></string>
     <string name="miko_name_yatsuhashi"></string>
-    <string name="miko_name_yoshika"></string>
-    <string name="miko_name_yoshika2"></string>
+    <string name="miko_name_yoshika">宮古 芳香</string>
+    <string name="miko_name_yoshika2">宮古 芳香 ②</string>
     <string name="miko_name_youmu">魂魄 妖夢</string>
     <string name="miko_name_yuugi"></string>
     <string name="miko_name_yuuka"></string>
