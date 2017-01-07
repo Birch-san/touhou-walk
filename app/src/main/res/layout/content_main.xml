@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
@@ -13,93 +15,87 @@
     tools:context="uk.co.birchlabs.touhouwalk.activities.main.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TableLayout
-        android:layout_width="wrap_content"
+    <TableRow
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-        <TableRow
+        <Button
+            android:text="@string/start"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ListView
-                android:id="@+id/baka_list"
-                android:layout_height="150dp"
-                android:layout_span="3">
-            </ListView>
-        </TableRow>
+            android:layout_height="wrap_content"
+            android:id="@+id/start_button"/>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        <Button
+            android:text="@string/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stop_button" />
+    </TableRow>
 
-            <Button
-                android:text="@string/start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/start_button"/>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/baka_list"
+            android:layout_height="200dp"
+            android:layout_span="3">
+        </ListView>
+    </TableRow>
 
-            <Button
-                android:text="@string/stop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/stop_button" />
-        </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/sprite_scale"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
 
-            <TextView
-                android:text="@string/sprite_scale"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                />
+        <NumberPicker
+            android:id="@+id/sprite_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
 
-            <NumberPicker
-                android:id="@+id/sprite_scale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-        </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/spawn_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
 
-            <TextView
-                android:text="@string/spawn_checkbox"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                />
+        <CheckBox android:id="@+id/spawn_checkbox_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spawn_checkbox_top"
+            />
+        <CheckBox android:id="@+id/spawn_checkbox_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spawn_checkbox_bottom"
+            />
+    </TableRow>
 
-            <CheckBox android:id="@+id/spawn_checkbox_top"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/spawn_checkbox_top"
-                />
-            <CheckBox android:id="@+id/spawn_checkbox_bottom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/spawn_checkbox_bottom"
-                />
-        </TableRow>
-
-    </TableLayout>
+</TableLayout>
 
 
 
-    <!--<uk.co.birchlabs.touhouwalk.services.walker.WalkerView-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="fill_parent"-->
-        <!--android:fitsSystemWindows="false"-->
-        <!--android:clipToPadding="false"-->
-        <!--/>-->
+<!--<uk.co.birchlabs.touhouwalk.services.walker.WalkerView-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:fitsSystemWindows="false"-->
+    <!--android:clipToPadding="false"-->
+    <!--/>-->
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/overlay"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
+<!--<LinearLayout-->
+    <!--android:id="@+id/overlay"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
 
-
-</RelativeLayout>
