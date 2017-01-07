@@ -1,9 +1,9 @@
 package uk.co.birchlabs.touhouwalk.global;
 
-import android.util.SparseArray;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import uk.co.birchlabs.touhouwalk.R;
 
@@ -12,14 +12,12 @@ import uk.co.birchlabs.touhouwalk.R;
  */
 
 public class MikoDatabase {
-    private static final List<Integer> resourceIDs;
-    private static final SparseArray<Miko> mikobase;
+    private static final Map<String, Miko> mikobase;
 
     static {
-        mikobase = new SparseArray<>();
-        resourceIDs = new ArrayList<>();
+        mikobase = new TreeMap<>();
         addMiko(
-                R.drawable.alice,
+                "alice",
                 new Miko(
                         R.drawable.alice,
                         "alice",
@@ -28,7 +26,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.aya,
+                "aya",
                 new Miko(
                         R.drawable.aya,
                         "aya",
@@ -37,7 +35,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.benben,
+                "benben",
                 new Miko(
                         R.drawable.benben,
                         "benben",
@@ -46,7 +44,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.chen,
+                "chen",
                 new Miko(
                         R.drawable.chen,
                         "chen",
@@ -55,7 +53,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.chirno,
+                "chirno",
                 new Miko(
                         R.drawable.chirno,
                         "chirno",
@@ -64,7 +62,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.daiyousei,
+                "daiyousei",
                 new Miko(
                         R.drawable.daiyousei,
                         "daiyousei",
@@ -73,7 +71,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.eirin,
+                "eirin",
                 new Miko(
                         R.drawable.eirin,
                         "eirin",
@@ -82,7 +80,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.fran,
+                "fran",
                 new Miko(
                         R.drawable.fran,
                         "fran",
@@ -91,7 +89,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.hatate,
+                "hatate",
                 new Miko(
                         R.drawable.hatate,
                         "hatate",
@@ -100,7 +98,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.hijiri,
+                "hijiri",
                 new Miko(
                         R.drawable.hijiri,
                         "hijiri",
@@ -109,7 +107,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.hina,
+                "hina",
                 new Miko(
                         R.drawable.hina,
                         "hina",
@@ -118,7 +116,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.huto,
+                "huto",
                 new Miko(
                         R.drawable.huto,
                         "huto",
@@ -127,7 +125,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.ichirin,
+                "ichirin",
                 new Miko(
                         R.drawable.ichirin,
                         "ichirin",
@@ -136,7 +134,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.iku,
+                "iku",
                 new Miko(
                         R.drawable.iku,
                         "iku",
@@ -145,7 +143,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kagerou,
+                "kagerou",
                 new Miko(
                         R.drawable.kagerou,
                         "kagerou",
@@ -154,7 +152,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kaguya,
+                "kaguya",
                 new Miko(
                         R.drawable.kaguya,
                         "kaguya",
@@ -163,7 +161,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kanako,
+                "kanako",
                 new Miko(
                         R.drawable.kanako,
                         "kanako",
@@ -172,7 +170,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.keine,
+                "keine",
                 new Miko(
                         R.drawable.keine,
                         "keine",
@@ -181,7 +179,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.keinekimo,
+                "keinekimo",
                 new Miko(
                         R.drawable.keinekimo,
                         "keinekimo",
@@ -190,7 +188,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kisume,
+                "kisume",
                 new Miko(
                         R.drawable.kisume,
                         "kisume",
@@ -199,7 +197,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.koa,
+                "koa",
                 new Miko(
                         R.drawable.koa,
                         "koa",
@@ -208,7 +206,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kogasa,
+                "kogasa",
                 new Miko(
                         R.drawable.kogasa,
                         "kogasa",
@@ -217,7 +215,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.koishi,
+                "koishi",
                 new Miko(
                         R.drawable.koishi,
                         "koishi",
@@ -226,7 +224,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kokoro,
+                "kokoro",
                 new Miko(
                         R.drawable.kokoro,
                         "kokoro",
@@ -235,7 +233,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.komachi,
+                "komachi",
                 new Miko(
                         R.drawable.komachi,
                         "komachi",
@@ -244,7 +242,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.kyoko,
+                "kyoko",
                 new Miko(
                         R.drawable.kyoko,
                         "kyoko",
@@ -253,7 +251,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.lily_black,
+                "lily_black",
                 new Miko(
                         R.drawable.lily_black,
                         "lily_black",
@@ -262,7 +260,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.lily_white,
+                "lily_white",
                 new Miko(
                         R.drawable.lily_white,
                         "lily_white",
@@ -271,7 +269,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.mamizo,
+                "mamizo",
                 new Miko(
                         R.drawable.mamizo,
                         "mamizo",
@@ -280,7 +278,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.marisa,
+                "marisa",
                 new Miko(
                         R.drawable.marisa,
                         "marisa",
@@ -289,7 +287,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.meirin,
+                "meirin",
                 new Miko(
                         R.drawable.meirin,
                         "meirin",
@@ -298,7 +296,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.melran,
+                "melran",
                 new Miko(
                         R.drawable.melran,
                         "melran",
@@ -307,7 +305,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.merancory,
+                "merancory",
                 new Miko(
                         R.drawable.merancory,
                         "merancory",
@@ -316,7 +314,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.miko,
+                "miko",
                 new Miko(
                         R.drawable.miko,
                         "miko",
@@ -325,7 +323,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.minoriko,
+                "minoriko",
                 new Miko(
                         R.drawable.minoriko,
                         "minoriko",
@@ -334,7 +332,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.mistia,
+                "mistia",
                 new Miko(
                         R.drawable.mistia,
                         "mistia",
@@ -343,7 +341,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.moko,
+                "moko",
                 new Miko(
                         R.drawable.moko,
                         "moko",
@@ -352,7 +350,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.momiji,
+                "momiji",
                 new Miko(
                         R.drawable.momiji,
                         "momiji",
@@ -361,7 +359,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.murasa,
+                "murasa",
                 new Miko(
                         R.drawable.murasa,
                         "murasa",
@@ -370,7 +368,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.nazu,
+                "nazu",
                 new Miko(
                         R.drawable.nazu,
                         "nazu",
@@ -379,7 +377,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.nitori,
+                "nitori",
                 new Miko(
                         R.drawable.nitori,
                         "nitori",
@@ -388,7 +386,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.nue,
+                "nue",
                 new Miko(
                         R.drawable.nue,
                         "nue",
@@ -397,7 +395,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.orin,
+                "orin",
                 new Miko(
                         R.drawable.orin,
                         "orin",
@@ -406,7 +404,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.pal,
+                "pal",
                 new Miko(
                         R.drawable.pal,
                         "pal",
@@ -415,7 +413,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.patyuri,
+                "patyuri",
                 new Miko(
                         R.drawable.patyuri,
                         "patyuri",
@@ -424,7 +422,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.raiko,
+                "raiko",
                 new Miko(
                         R.drawable.raiko,
                         "raiko",
@@ -433,7 +431,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.ran,
+                "ran",
                 new Miko(
                         R.drawable.ran,
                         "ran",
@@ -442,7 +440,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.reimu,
+                "reimu",
                 new Miko(
                         R.drawable.reimu,
                         "reimu",
@@ -451,7 +449,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.remiria,
+                "remiria",
                 new Miko(
                         R.drawable.remiria,
                         "remiria",
@@ -460,7 +458,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.rety,
+                "rety",
                 new Miko(
                         R.drawable.rety,
                         "rety",
@@ -469,7 +467,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.riguru,
+                "riguru",
                 new Miko(
                         R.drawable.riguru,
                         "riguru",
@@ -478,7 +476,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.rinnosuke,
+                "rinnosuke",
                 new Miko(
                         R.drawable.rinnosuke,
                         "rinnosuke",
@@ -487,7 +485,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.ririka,
+                "ririka",
                 new Miko(
                         R.drawable.ririka,
                         "ririka",
@@ -496,7 +494,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.rumia,
+                "rumia",
                 new Miko(
                         R.drawable.rumia,
                         "rumia",
@@ -505,7 +503,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.runasa,
+                "runasa",
                 new Miko(
                         R.drawable.runasa,
                         "runasa",
@@ -514,7 +512,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.sakuya,
+                "sakuya",
                 new Miko(
                         R.drawable.sakuya,
                         "sakuya",
@@ -523,7 +521,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.sanae,
+                "sanae",
                 new Miko(
                         R.drawable.sanae,
                         "sanae",
@@ -532,7 +530,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.satori,
+                "satori",
                 new Miko(
                         R.drawable.satori,
                         "satori",
@@ -541,7 +539,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.seiga,
+                "seiga",
                 new Miko(
                         R.drawable.seiga,
                         "seiga",
@@ -550,7 +548,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.seija,
+                "seija",
                 new Miko(
                         R.drawable.seija,
                         "seija",
@@ -559,7 +557,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.sekibanki,
+                "sekibanki",
                 new Miko(
                         R.drawable.sekibanki,
                         "sekibanki",
@@ -568,7 +566,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.shannhai,
+                "shannhai",
                 new Miko(
                         R.drawable.shannhai,
                         "shannhai",
@@ -577,7 +575,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.shinmyoumaru,
+                "shinmyoumaru",
                 new Miko(
                         R.drawable.shinmyoumaru,
                         "shinmyoumaru",
@@ -586,7 +584,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.shizuha,
+                "shizuha",
                 new Miko(
                         R.drawable.shizuha,
                         "shizuha",
@@ -595,7 +593,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.sikieiki,
+                "sikieiki",
                 new Miko(
                         R.drawable.sikieiki,
                         "sikieiki",
@@ -604,7 +602,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.suika,
+                "suika",
                 new Miko(
                         R.drawable.suika,
                         "suika",
@@ -613,7 +611,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.suwako,
+                "suwako",
                 new Miko(
                         R.drawable.suwako,
                         "suwako",
@@ -622,7 +620,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.tei,
+                "tei",
                 new Miko(
                         R.drawable.tei,
                         "tei",
@@ -631,7 +629,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.tenshi,
+                "tenshi",
                 new Miko(
                         R.drawable.tenshi,
                         "tenshi",
@@ -640,7 +638,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.tojiko,
+                "tojiko",
                 new Miko(
                         R.drawable.tojiko,
                         "tojiko",
@@ -649,7 +647,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.tojiko2,
+                "tojiko2",
                 new Miko(
                         R.drawable.tojiko2,
                         "tojiko2",
@@ -658,7 +656,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.toramaru,
+                "toramaru",
                 new Miko(
                         R.drawable.toramaru,
                         "toramaru",
@@ -667,7 +665,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.udonge,
+                "udonge",
                 new Miko(
                         R.drawable.udonge,
                         "udonge",
@@ -676,7 +674,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.utsuho,
+                "utsuho",
                 new Miko(
                         R.drawable.utsuho,
                         "utsuho",
@@ -685,7 +683,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.wakasagi,
+                "wakasagi",
                 new Miko(
                         R.drawable.wakasagi,
                         "wakasagi",
@@ -694,7 +692,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yakumoyukari,
+                "yakumoyukari",
                 new Miko(
                         R.drawable.yakumoyukari,
                         "yakumoyukari",
@@ -703,7 +701,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yamame,
+                "yamame",
                 new Miko(
                         R.drawable.yamame,
                         "yamame",
@@ -712,7 +710,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yatsuhashi,
+                "yatsuhashi",
                 new Miko(
                         R.drawable.yatsuhashi,
                         "yatsuhashi",
@@ -721,7 +719,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yoshika,
+                "yoshika",
                 new Miko(
                         R.drawable.yoshika,
                         "yoshika",
@@ -730,7 +728,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yoshika2,
+                "yoshika2",
                 new Miko(
                         R.drawable.yoshika2,
                         "yoshika2",
@@ -739,7 +737,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.youmu,
+                "youmu",
                 new Miko(
                         R.drawable.youmu,
                         "youmu",
@@ -748,7 +746,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yuugi,
+                "yuugi",
                 new Miko(
                         R.drawable.yuugi,
                         "yuugi",
@@ -757,7 +755,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yuuka,
+                "yuuka",
                 new Miko(
                         R.drawable.yuuka,
                         "yuuka",
@@ -766,7 +764,7 @@ public class MikoDatabase {
                 )
         );
         addMiko(
-                R.drawable.yuyuko,
+                "yuyuko",
                 new Miko(
                         R.drawable.yuyuko,
                         "yuyuko",
@@ -776,19 +774,40 @@ public class MikoDatabase {
         );
     }
 
-    private static void addMiko(int resourceId, Miko miko) {
+    private static void addMiko(String key, Miko miko) {
         mikobase.put(
-                resourceId,
+                key,
                 miko
         );
-        resourceIDs.add(resourceId);
     }
 
-    public static Miko getMiko(int resourceId) {
-        return mikobase.get(resourceId);
+    public static Miko getMiko(String key) {
+        return mikobase.get(key);
     }
 
-    public static Integer[] getResourceIDs() {
-        return resourceIDs.toArray(new Integer[resourceIDs.size()]);
+    public static Set<String> getKeySet() {
+        return mikobase.keySet();
+    }
+
+    public static String[] getKeys() {
+        return mikobase.keySet().toArray(new String[mikobase.keySet().size()]);
+    }
+
+    private static final Set<String> defaultEnabledMikos;
+
+    static {
+        defaultEnabledMikos = new HashSet<>();
+        defaultEnabledMikos.add("youmu");
+        defaultEnabledMikos.add("marisa");
+        defaultEnabledMikos.add("reimu");
+        defaultEnabledMikos.add("aya");
+        defaultEnabledMikos.add("alice");
+        defaultEnabledMikos.add("udonge");
+        defaultEnabledMikos.add("sanae");
+        defaultEnabledMikos.add("chirno");
+    }
+
+    public static boolean isMikoOnByDefault(String key) {
+        return defaultEnabledMikos.contains(key);
     }
 }

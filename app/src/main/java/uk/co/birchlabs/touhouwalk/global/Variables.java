@@ -1,5 +1,7 @@
 package uk.co.birchlabs.touhouwalk.global;
 
+import java.util.Locale;
+
 import uk.co.birchlabs.touhouwalk.R;
 
 /**
@@ -18,5 +20,9 @@ public class Variables {
             return spawn_checkbox_bottom;
         }
         throw new IllegalArgumentException();
+    }
+
+    public static String getBakaCheckboxVar(String assetName) {
+        return String.format(Locale.ENGLISH, "baka_checkbox_%s", assetName);
     }
 }

@@ -1,12 +1,16 @@
 package uk.co.birchlabs.touhouwalk.activities.main;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +22,9 @@ import java.util.Set;
 
 import uk.co.birchlabs.touhouwalk.R;
 import uk.co.birchlabs.touhouwalk.global.BitmapUtils;
+import uk.co.birchlabs.touhouwalk.global.Miko;
 import uk.co.birchlabs.touhouwalk.global.MikoDatabase;
+import uk.co.birchlabs.touhouwalk.global.Variables;
 import uk.co.birchlabs.touhouwalk.services.walker.Animation;
 import uk.co.birchlabs.touhouwalk.services.walker.AnimationExtractor;
 import uk.co.birchlabs.touhouwalk.services.walker.Spritesheet;
@@ -27,14 +33,17 @@ import uk.co.birchlabs.touhouwalk.services.walker.Spritesheet;
  * Created by birch on 06/01/2017.
  */
 
-public class BakaArrayAdapter extends ArrayAdapter<Integer> {
+public class BakaArrayAdapter extends ArrayAdapter<String> {
     private final Context context;
-    private final Integer[] values;
+    private final String[] values;
 
-    public BakaArrayAdapter(Context context, Integer[] values) {
+    private final SharedPreferences prefs;
+
+    public BakaArrayAdapter(Context context, String[] values) {
         super(context, R.layout.baka_list_item_main, values);
         this.context = context;
         this.values = values;
+        prefs = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
     }
 
     @Override
@@ -48,7 +57,7 @@ public class BakaArrayAdapter extends ArrayAdapter<Integer> {
 
 
         // Change icon based on name
-        final Integer resource = values[position];
+        final String assetKey = values[position];
 
         final String localName;
         final String foreignName;
@@ -64,12 +73,14 @@ public class BakaArrayAdapter extends ArrayAdapter<Integer> {
         jpLocales.add(Locale.JAPAN);
         jpLocales.add(Locale.JAPANESE);
 
+        final Miko miko = MikoDatabase.getMiko(assetKey);
+
         if (jpLocales.contains(currentLocale)) {
-            localName = MikoDatabase.getMiko(resource).getJpName();
-            foreignName = MikoDatabase.getMiko(resource).getEngName();
+            localName = miko.getJpName();
+            foreignName = miko.getEngName();
         } else {
-            localName = MikoDatabase.getMiko(resource).getEngName();
-            foreignName = MikoDatabase.getMiko(resource).getJpName();
+            localName = miko.getEngName();
+            foreignName = miko.getJpName();
         }
 
         textView.setText(
@@ -84,7 +95,7 @@ public class BakaArrayAdapter extends ArrayAdapter<Integer> {
 
         final Spritesheet spritesheet = new Spritesheet(
                 BitmapUtils.getRawBmp(
-                        resource,
+                        miko.getResource(),
                         getContext().getResources()
                 ),
                 scaleFactor
@@ -105,6 +116,19 @@ public class BakaArrayAdapter extends ArrayAdapter<Integer> {
         );
 
         imageView.setImageBitmap(idleBitmap);
+
+        final CheckBox checkBox = (CheckBox) rowView.findViewById(R.id.baka_checkbox);
+
+        checkBox.setChecked(prefs.getBoolean(Variables.getBakaCheckboxVar(assetKey), MikoDatabase.isMikoOnByDefault(assetKey)));
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                final SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean(Variables.getBakaCheckboxVar(assetKey), b);
+                editor.apply();
+            }
+        });
 
         return rowView;
     }

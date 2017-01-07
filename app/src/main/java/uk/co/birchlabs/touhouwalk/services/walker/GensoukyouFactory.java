@@ -8,8 +8,10 @@ import android.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import uk.co.birchlabs.touhouwalk.R;
+import uk.co.birchlabs.touhouwalk.global.MikoDatabase;
 import uk.co.birchlabs.touhouwalk.global.Variables;
 
 /**
@@ -25,6 +27,7 @@ public class GensoukyouFactory {
     private final int spriteScale;
 
     private final Random randomGenerator;
+    final SharedPreferences prefs;
 
     public GensoukyouFactory(
             int widthPixels,
@@ -35,7 +38,7 @@ public class GensoukyouFactory {
         this.heightPixels = heightPixels;
         this.context = context;
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         spriteScale = prefs.getInt(Variables.sprite_scale, 2);
 
@@ -65,42 +68,17 @@ public class GensoukyouFactory {
                 new LinearAnimationTiming(3, 500)
         );
 
-        gensoukyou.addBaka(
-                constructBaka(
-                        R.drawable.reimu,
-                        bakaFactory
-                )
-        );
-        gensoukyou.addBaka(
-                constructBaka(
-                        R.drawable.sanae,
-                        bakaFactory
-                )
-        );
-        gensoukyou.addBaka(
-                constructBaka(
-                        R.drawable.marisa,
-                        bakaFactory
-                )
-        );
-        gensoukyou.addBaka(
-                constructBaka(
-                        R.drawable.aya,
-                        bakaFactory
-                )
-        );
-        gensoukyou.addBaka(
-                constructBaka(
-                        R.drawable.chirno,
-                        bakaFactory
-                )
-        );
-        gensoukyou.addBaka(
-                constructBaka(
-                        R.drawable.kokoro,
-                        bakaFactory
-                )
-        );
+        for (String mikoKey : MikoDatabase.getKeySet()) {
+            if (prefs.getBoolean(Variables.getBakaCheckboxVar(mikoKey), MikoDatabase.isMikoOnByDefault(mikoKey))) {
+                gensoukyou.addBaka(
+                        constructBaka(
+                                MikoDatabase.getMiko(mikoKey).getResource(),
+                                bakaFactory
+                        )
+                );
+            }
+        }
+
         return gensoukyou;
     }
 

@@ -1,6 +1,5 @@
 package uk.co.birchlabs.touhouwalk.activities.main;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
@@ -125,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initForm() {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        final SharedPreferences.Editor editor = prefs.edit();
 
         final NumberPicker spriteScale = (NumberPicker) findViewById(R.id.sprite_scale);
         spriteScale.setMinValue(1);
@@ -136,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         spriteScale.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal){
+                final SharedPreferences.Editor editor = prefs.edit();
                 editor.putInt(Variables.sprite_scale, newVal);
                 editor.apply();
             }
@@ -168,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     compoundButton.setChecked(!compoundButton.isChecked());
                     return;
                 }
+                final SharedPreferences.Editor editor = prefs.edit();
                 editor.putBoolean(Variables.getSpawnCheckboxVar(compoundButton.getId()), b);
                 editor.apply();
             }
@@ -181,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(
                 new BakaArrayAdapter(
                         listView.getContext(),
-                        MikoDatabase.getResourceIDs()
+                        MikoDatabase.getKeys()
                 )
         );
     }
