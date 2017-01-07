@@ -61,35 +61,41 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
 
         final String localName;
         final String foreignName;
-
-        final Locale currentLocale;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            currentLocale = getContext().getResources().getConfiguration().getLocales().get(0);
-        } else {
-            currentLocale = getContext().getResources().getConfiguration().locale;
-        }
-
-        final Set<Locale> jpLocales = new HashSet<>();
-        jpLocales.add(Locale.JAPAN);
-        jpLocales.add(Locale.JAPANESE);
+//
+//        final Locale currentLocale;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+//            currentLocale = getContext().getResources().getConfiguration().getLocales().get(0);
+//        } else {
+//            currentLocale = getContext().getResources().getConfiguration().locale;
+//        }
+//
+//        final Set<Locale> jpLocales = new HashSet<>();
+//        jpLocales.add(Locale.JAPAN);
+//        jpLocales.add(Locale.JAPANESE);
 
         final Miko miko = MikoDatabase.getMiko(assetKey);
 
-        if (jpLocales.contains(currentLocale)) {
-            localName = miko.getJpName();
-            foreignName = miko.getEngName();
+        if (miko.getJpName() == null) {
+            textView.setText(
+                    miko.getEngName()
+            );
         } else {
-            localName = miko.getEngName();
-            foreignName = miko.getJpName();
+//            if (jpLocales.contains(currentLocale)) {
+//                localName = miko.getJpName();
+//                foreignName = miko.getEngName();
+//            } else {
+                localName = miko.getEngName();
+                foreignName = miko.getJpName();
+//            }
+//
+            textView.setText(
+                    String.format(
+                            "%s\n%s",
+                            localName,
+                            foreignName
+                    )
+            );
         }
-
-        textView.setText(
-                String.format(
-                        "%s\n%s",
-                        localName,
-                        foreignName
-                )
-        );
 
         final int scaleFactor = 1;
 

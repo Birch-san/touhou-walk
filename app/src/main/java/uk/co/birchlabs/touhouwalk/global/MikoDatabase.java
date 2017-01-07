@@ -18,766 +18,524 @@ public class MikoDatabase {
         mikobase = new TreeMap<>();
         addMiko(
                 "alice",
-                new Miko(
-                        R.drawable.alice,
-                        "alice",
-                        "Alice",
-                        "射命丸 文"
-                )
+                R.drawable.alice,
+                "Alice Margatroid",
+                "アリス・マーガトロイド"
         );
         addMiko(
                 "aya",
-                new Miko(
-                        R.drawable.aya,
-                        "aya",
-                        "Aya",
-                        "射命丸 文"
-                )
+                R.drawable.aya,
+                "Aya Shameimaru",
+                "射命丸 文"
         );
         addMiko(
                 "benben",
-                new Miko(
-                        R.drawable.benben,
-                        "benben",
-                        "Benben",
-                        "射命丸 文"
-                )
+                R.drawable.benben,
+                "Benben Tsukumo",
+                null
         );
         addMiko(
                 "chen",
-                new Miko(
-                        R.drawable.chen,
-                        "chen",
-                        "Chen",
-                        "射命丸 文"
-                )
+                R.drawable.chen,
+                "Chen",
+                null
         );
         addMiko(
                 "chirno",
-                new Miko(
-                        R.drawable.chirno,
-                        "chirno",
-                        "Chirno",
-                        "射命丸 文"
-                )
+                R.drawable.chirno,
+                "Cirno",
+                "チルノ"
         );
         addMiko(
                 "daiyousei",
-                new Miko(
-                        R.drawable.daiyousei,
-                        "daiyousei",
-                        "Daiyousei",
-                        "射命丸 文"
-                )
+                R.drawable.daiyousei,
+                "Daiyousei",
+                null
         );
         addMiko(
                 "eirin",
-                new Miko(
-                        R.drawable.eirin,
-                        "eirin",
-                        "Eirin",
-                        "射命丸 文"
-                )
+                R.drawable.eirin,
+                "Eirin Yagokoro",
+                null
         );
         addMiko(
                 "fran",
-                new Miko(
-                        R.drawable.fran,
-                        "fran",
-                        "Fran",
-                        "射命丸 文"
-                )
+                R.drawable.fran,
+                "Flandre Scarlet",
+                "フランドール・スカーレット"
         );
         addMiko(
                 "hatate",
-                new Miko(
-                        R.drawable.hatate,
-                        "hatate",
-                        "Hatate",
-                        "射命丸 文"
-                )
+                R.drawable.hatate,
+                "Hatate Himekaidou",
+                null
         );
         addMiko(
                 "hijiri",
-                new Miko(
-                        R.drawable.hijiri,
-                        "hijiri",
-                        "Hijiri",
-                        "射命丸 文"
-                )
+                R.drawable.hijiri,
+                "Byakuren Hijiri",
+                null
         );
         addMiko(
                 "hina",
-                new Miko(
-                        R.drawable.hina,
-                        "hina",
-                        "Hina",
-                        "射命丸 文"
-                )
+                R.drawable.hina,
+                "Hina Kagiyama",
+                null
         );
         addMiko(
                 "huto",
-                new Miko(
-                        R.drawable.huto,
-                        "huto",
-                        "Huto",
-                        "射命丸 文"
-                )
+                R.drawable.huto,
+                "Huto",
+                null
         );
         addMiko(
                 "ichirin",
-                new Miko(
-                        R.drawable.ichirin,
-                        "ichirin",
-                        "Ichirin",
-                        "射命丸 文"
-                )
+                R.drawable.ichirin,
+                "Ichirin Kumoi",
+                null
         );
         addMiko(
                 "iku",
-                new Miko(
-                        R.drawable.iku,
-                        "iku",
-                        "Iku",
-                        "射命丸 文"
-                )
+                R.drawable.iku,
+                "Iku Nagae",
+                "永江 衣玖"
         );
         addMiko(
                 "kagerou",
-                new Miko(
-                        R.drawable.kagerou,
-                        "kagerou",
-                        "Kagerou",
-                        "射命丸 文"
-                )
+                R.drawable.kagerou,
+                "Kagerou Imaizumi",
+                null
         );
         addMiko(
                 "kaguya",
-                new Miko(
-                        R.drawable.kaguya,
-                        "kaguya",
-                        "Kaguya",
-                        "射命丸 文"
-                )
+                R.drawable.kaguya,
+                "Kaguya Houraisan",
+                "蓬莱山 輝夜"
         );
         addMiko(
                 "kanako",
-                new Miko(
-                        R.drawable.kanako,
-                        "kanako",
-                        "Kanako",
-                        "射命丸 文"
-                )
+                R.drawable.kanako,
+                "Kanako Yasaka",
+                null
         );
         addMiko(
                 "keine",
-                new Miko(
-                        R.drawable.keine,
-                        "keine",
-                        "Keine",
-                        "射命丸 文"
-                )
+                R.drawable.keine,
+                "Keine Kamishirasawa",
+                null
         );
         addMiko(
                 "keinekimo",
-                new Miko(
-                        R.drawable.keinekimo,
-                        "keinekimo",
-                        "Keinekimo",
-                        "射命丸 文"
-                )
+                R.drawable.keinekimo,
+                "Keinekimo",
+                null
         );
         addMiko(
                 "kisume",
-                new Miko(
-                        R.drawable.kisume,
-                        "kisume",
-                        "Kisume",
-                        "射命丸 文"
-                )
+                R.drawable.kisume,
+                "Kisume",
+                null
         );
         addMiko(
                 "koa",
-                new Miko(
-                        R.drawable.koa,
-                        "koa",
-                        "Koa",
-                        "射命丸 文"
-                )
+                R.drawable.koa,
+                "Koakuma",
+                null
         );
         addMiko(
                 "kogasa",
-                new Miko(
-                        R.drawable.kogasa,
-                        "kogasa",
-                        "Kogasa",
-                        "射命丸 文"
-                )
+                R.drawable.kogasa,
+                "Kogasa Tatara",
+                null
         );
         addMiko(
                 "koishi",
-                new Miko(
-                        R.drawable.koishi,
-                        "koishi",
-                        "Koishi",
-                        "射命丸 文"
-                )
+                R.drawable.koishi,
+                "Koishi Komeiji",
+                null
         );
         addMiko(
                 "kokoro",
-                new Miko(
-                        R.drawable.kokoro,
-                        "kokoro",
-                        "Kokoro",
-                        "射命丸 文"
-                )
+                R.drawable.kokoro,
+                "Hata no Kokoro",
+                "秦 こころ"
         );
         addMiko(
                 "komachi",
-                new Miko(
-                        R.drawable.komachi,
-                        "komachi",
-                        "Komachi",
-                        "射命丸 文"
-                )
+                R.drawable.komachi,
+                "Komachi Onozuka",
+                null
         );
         addMiko(
                 "kyoko",
-                new Miko(
-                        R.drawable.kyoko,
-                        "kyoko",
-                        "Kyoko",
-                        "射命丸 文"
-                )
+                R.drawable.kyoko,
+                "Kyouko Kasodani",
+                null
         );
         addMiko(
                 "lily_black",
-                new Miko(
-                        R.drawable.lily_black,
-                        "lily_black",
-                        "Lily_black",
-                        "射命丸 文"
-                )
+                R.drawable.lily_black,
+                "Lily Black",
+                null
         );
         addMiko(
                 "lily_white",
-                new Miko(
-                        R.drawable.lily_white,
-                        "lily_white",
-                        "Lily_white",
-                        "射命丸 文"
-                )
+                R.drawable.lily_white,
+                "Lily White",
+                null
         );
         addMiko(
                 "mamizo",
-                new Miko(
-                        R.drawable.mamizo,
-                        "mamizo",
-                        "Mamizo",
-                        "射命丸 文"
-                )
+                R.drawable.mamizo,
+                "Mamizo Futatsuiwa",
+                null
         );
         addMiko(
                 "marisa",
-                new Miko(
-                        R.drawable.marisa,
-                        "marisa",
-                        "Marisa",
-                        "射命丸 文"
-                )
+                R.drawable.marisa,
+                "Marisa Kirisame",
+                "霧雨 魔理沙"
         );
         addMiko(
                 "meirin",
-                new Miko(
-                        R.drawable.meirin,
-                        "meirin",
-                        "Meirin",
-                        "射命丸 文"
-                )
+                R.drawable.meirin,
+                "Hong Meiling",
+                null
         );
         addMiko(
                 "melran",
-                new Miko(
-                        R.drawable.melran,
-                        "melran",
-                        "Melran",
-                        "射命丸 文"
-                )
+                R.drawable.melran,
+                "Melran",
+                null
         );
         addMiko(
                 "merancory",
-                new Miko(
-                        R.drawable.merancory,
-                        "merancory",
-                        "Merancory",
-                        "射命丸 文"
-                )
+                R.drawable.merancory,
+                "Medicine Melancholy",
+                null
         );
         addMiko(
                 "miko",
-                new Miko(
-                        R.drawable.miko,
-                        "miko",
-                        "Miko",
-                        "射命丸 文"
-                )
+                R.drawable.miko,
+                "Toyosatomimi no Miko",
+                null
         );
         addMiko(
                 "minoriko",
-                new Miko(
-                        R.drawable.minoriko,
-                        "minoriko",
-                        "Minoriko",
-                        "射命丸 文"
-                )
+                R.drawable.minoriko,
+                "Minoriko Aki",
+                null
         );
         addMiko(
                 "mistia",
-                new Miko(
-                        R.drawable.mistia,
-                        "mistia",
-                        "Mistia",
-                        "射命丸 文"
-                )
+                R.drawable.mistia,
+                "Mystia Lorelei",
+                null
         );
         addMiko(
                 "moko",
-                new Miko(
-                        R.drawable.moko,
-                        "moko",
-                        "Moko",
-                        "射命丸 文"
-                )
+                R.drawable.moko,
+                "Fujiwara no Mokou",
+                null
         );
         addMiko(
                 "momiji",
-                new Miko(
-                        R.drawable.momiji,
-                        "momiji",
-                        "Momiji",
-                        "射命丸 文"
-                )
+                R.drawable.momiji,
+                "Momiji Inubashiri",
+                null
         );
         addMiko(
                 "murasa",
-                new Miko(
-                        R.drawable.murasa,
-                        "murasa",
-                        "Murasa",
-                        "射命丸 文"
-                )
+                R.drawable.murasa,
+                "Minamitsu Murasa",
+                null
         );
         addMiko(
                 "nazu",
-                new Miko(
-                        R.drawable.nazu,
-                        "nazu",
-                        "Nazu",
-                        "射命丸 文"
-                )
+                R.drawable.nazu,
+                "Nazrin",
+                null
         );
         addMiko(
                 "nitori",
-                new Miko(
-                        R.drawable.nitori,
-                        "nitori",
-                        "Nitori",
-                        "射命丸 文"
-                )
+                R.drawable.nitori,
+                "Nitori Kawashiro",
+                null
         );
         addMiko(
                 "nue",
-                new Miko(
-                        R.drawable.nue,
-                        "nue",
-                        "Nue",
-                        "射命丸 文"
-                )
+                R.drawable.nue,
+                "Nue Houjuu",
+                null
         );
         addMiko(
                 "orin",
-                new Miko(
-                        R.drawable.orin,
-                        "orin",
-                        "Orin",
-                        "射命丸 文"
-                )
+                R.drawable.orin,
+                "Orange",
+                null
         );
         addMiko(
                 "pal",
-                new Miko(
-                        R.drawable.pal,
-                        "pal",
-                        "Pal",
-                        "射命丸 文"
-                )
+                R.drawable.pal,
+                "Parsee Mizuhashi",
+                null
         );
         addMiko(
                 "patyuri",
-                new Miko(
-                        R.drawable.patyuri,
-                        "patyuri",
-                        "Patyuri",
-                        "射命丸 文"
-                )
+                R.drawable.patyuri,
+                "Patchouli Knowledge",
+                "パチュリー・ノーレッジ"
         );
         addMiko(
                 "raiko",
-                new Miko(
-                        R.drawable.raiko,
-                        "raiko",
-                        "Raiko",
-                        "射命丸 文"
-                )
+                R.drawable.raiko,
+                "Raiko Horikawa",
+                null
         );
         addMiko(
                 "ran",
-                new Miko(
-                        R.drawable.ran,
-                        "ran",
-                        "Ran",
-                        "射命丸 文"
-                )
+                R.drawable.ran,
+                "Ran Yakumo",
+                null
         );
         addMiko(
                 "reimu",
-                new Miko(
-                        R.drawable.reimu,
-                        "reimu",
-                        "Reimu",
-                        "射命丸 文"
-                )
+                R.drawable.reimu,
+                "Reimu Hakurei",
+                "博麗 霊夢"
         );
         addMiko(
                 "remiria",
-                new Miko(
-                        R.drawable.remiria,
-                        "remiria",
-                        "Remiria",
-                        "射命丸 文"
-                )
+                R.drawable.remiria,
+                "Remilia Scarlet",
+                "レミリア・スカーレット"
         );
         addMiko(
                 "rety",
-                new Miko(
-                        R.drawable.rety,
-                        "rety",
-                        "Rety",
-                        "射命丸 文"
-                )
+                R.drawable.rety,
+                "Letty Whiterock",
+                null
         );
         addMiko(
                 "riguru",
-                new Miko(
-                        R.drawable.riguru,
-                        "riguru",
-                        "Riguru",
-                        "射命丸 文"
-                )
+                R.drawable.riguru,
+                "Wriggle Nightbug",
+                null
         );
         addMiko(
                 "rinnosuke",
-                new Miko(
-                        R.drawable.rinnosuke,
-                        "rinnosuke",
-                        "Rinnosuke",
-                        "射命丸 文"
-                )
+                R.drawable.rinnosuke,
+                "Rinnosuke Morichika",
+                null
         );
         addMiko(
                 "ririka",
-                new Miko(
-                        R.drawable.ririka,
-                        "ririka",
-                        "Ririka",
-                        "射命丸 文"
-                )
+                R.drawable.ririka,
+                "Lyrica Prismriver",
+                null
         );
         addMiko(
                 "rumia",
-                new Miko(
-                        R.drawable.rumia,
-                        "rumia",
-                        "Rumia",
-                        "射命丸 文"
-                )
+                R.drawable.rumia,
+                "Rumia",
+                null
         );
         addMiko(
                 "runasa",
-                new Miko(
-                        R.drawable.runasa,
-                        "runasa",
-                        "Runasa",
-                        "射命丸 文"
-                )
+                R.drawable.runasa,
+                "Lunasa Prismriver",
+                null
         );
         addMiko(
                 "sakuya",
-                new Miko(
-                        R.drawable.sakuya,
-                        "sakuya",
-                        "Sakuya",
-                        "射命丸 文"
-                )
+                R.drawable.sakuya,
+                "Sakuya Izayoi",
+                null
         );
         addMiko(
                 "sanae",
-                new Miko(
-                        R.drawable.sanae,
-                        "sanae",
-                        "Sanae",
-                        "射命丸 文"
-                )
+                R.drawable.sanae,
+                "Sanae Kochiya",
+                "東風谷 早苗"
         );
         addMiko(
                 "satori",
-                new Miko(
-                        R.drawable.satori,
-                        "satori",
-                        "Satori",
-                        "射命丸 文"
-                )
+                R.drawable.satori,
+                "Satori Komeiji",
+                null
         );
         addMiko(
                 "seiga",
-                new Miko(
-                        R.drawable.seiga,
-                        "seiga",
-                        "Seiga",
-                        "射命丸 文"
-                )
+                R.drawable.seiga,
+                "Seiga Kaku",
+                null
         );
         addMiko(
                 "seija",
-                new Miko(
-                        R.drawable.seija,
-                        "seija",
-                        "Seija",
-                        "射命丸 文"
-                )
+                R.drawable.seija,
+                "Seija Kijin",
+                null
         );
         addMiko(
                 "sekibanki",
-                new Miko(
-                        R.drawable.sekibanki,
-                        "sekibanki",
-                        "Sekibanki",
-                        "射命丸 文"
-                )
+                R.drawable.sekibanki,
+                "Sekibanki",
+                null
         );
         addMiko(
                 "shannhai",
-                new Miko(
-                        R.drawable.shannhai,
-                        "shannhai",
-                        "Shannhai",
-                        "射命丸 文"
-                )
+                R.drawable.shannhai,
+                "Shanghai",
+                null
         );
         addMiko(
                 "shinmyoumaru",
-                new Miko(
-                        R.drawable.shinmyoumaru,
-                        "shinmyoumaru",
-                        "Shinmyoumaru",
-                        "射命丸 文"
-                )
+                R.drawable.shinmyoumaru,
+                "Shinmyoumaru Sukuna",
+                null
         );
         addMiko(
                 "shizuha",
-                new Miko(
-                        R.drawable.shizuha,
-                        "shizuha",
-                        "Shizuha",
-                        "射命丸 文"
-                )
+                R.drawable.shizuha,
+                "Shizuha Aki",
+                null
         );
         addMiko(
                 "sikieiki",
-                new Miko(
-                        R.drawable.sikieiki,
-                        "sikieiki",
-                        "Sikieiki",
-                        "射命丸 文"
-                )
+                R.drawable.sikieiki,
+                "Shikieiki Yamaxanadu",
+                null
         );
         addMiko(
                 "suika",
-                new Miko(
-                        R.drawable.suika,
-                        "suika",
-                        "Suika",
-                        "射命丸 文"
-                )
+                R.drawable.suika,
+                "Suika Ibuki",
+                null
         );
         addMiko(
                 "suwako",
-                new Miko(
-                        R.drawable.suwako,
-                        "suwako",
-                        "Suwako",
-                        "射命丸 文"
-                )
+                R.drawable.suwako,
+                "Suwako Moriya",
+                null
         );
         addMiko(
                 "tei",
-                new Miko(
-                        R.drawable.tei,
-                        "tei",
-                        "Tei",
-                        "射命丸 文"
-                )
+                R.drawable.tei,
+                "Tewi Inaba",
+                null
         );
         addMiko(
                 "tenshi",
-                new Miko(
-                        R.drawable.tenshi,
-                        "tenshi",
-                        "Tenshi",
-                        "射命丸 文"
-                )
+                R.drawable.tenshi,
+                "Tenshi Hinanawi",
+                null
         );
         addMiko(
                 "tojiko",
-                new Miko(
-                        R.drawable.tojiko,
-                        "tojiko",
-                        "Tojiko",
-                        "射命丸 文"
-                )
+                R.drawable.tojiko,
+                "Soga no Tojiko",
+                null
         );
         addMiko(
                 "tojiko2",
-                new Miko(
-                        R.drawable.tojiko2,
-                        "tojiko2",
-                        "Tojiko2",
-                        "射命丸 文"
-                )
+                R.drawable.tojiko2,
+                "Soga no Tojiko (2)",
+                null
         );
         addMiko(
                 "toramaru",
-                new Miko(
-                        R.drawable.toramaru,
-                        "toramaru",
-                        "Toramaru",
-                        "射命丸 文"
-                )
+                R.drawable.toramaru,
+                "Shou Toramaru",
+                null
         );
         addMiko(
                 "udonge",
-                new Miko(
-                        R.drawable.udonge,
-                        "udonge",
-                        "Udonge",
-                        "射命丸 文"
-                )
+                R.drawable.udonge,
+                "Reisen Udongein Inaba",
+                null
         );
         addMiko(
                 "utsuho",
-                new Miko(
-                        R.drawable.utsuho,
-                        "utsuho",
-                        "Utsuho",
-                        "射命丸 文"
-                )
+                R.drawable.utsuho,
+                "Utsuho Reiuji",
+                "霊烏路 空"
         );
         addMiko(
                 "wakasagi",
-                new Miko(
-                        R.drawable.wakasagi,
-                        "wakasagi",
-                        "Wakasagi",
-                        "射命丸 文"
-                )
+                R.drawable.wakasagi,
+                "Wakasagihime",
+                null
         );
         addMiko(
                 "yakumoyukari",
-                new Miko(
-                        R.drawable.yakumoyukari,
-                        "yakumoyukari",
-                        "Yakumoyukari",
-                        "射命丸 文"
-                )
+                R.drawable.yakumoyukari,
+                "Yukari Yakumo",
+                null
         );
         addMiko(
                 "yamame",
-                new Miko(
-                        R.drawable.yamame,
-                        "yamame",
-                        "Yamame",
-                        "射命丸 文"
-                )
+                R.drawable.yamame,
+                "Yamame Kurodani",
+                null
         );
         addMiko(
                 "yatsuhashi",
-                new Miko(
-                        R.drawable.yatsuhashi,
-                        "yatsuhashi",
-                        "Yatsuhashi",
-                        "射命丸 文"
-                )
+                R.drawable.yatsuhashi,
+                "Yatsuhashi Tsukumo",
+                null
         );
         addMiko(
                 "yoshika",
-                new Miko(
-                        R.drawable.yoshika,
-                        "yoshika",
-                        "Yoshika",
-                        "射命丸 文"
-                )
+                R.drawable.yoshika,
+                "Yoshika Miyako",
+                null
         );
         addMiko(
                 "yoshika2",
-                new Miko(
-                        R.drawable.yoshika2,
-                        "yoshika2",
-                        "Yoshika2",
-                        "射命丸 文"
-                )
+                R.drawable.yoshika2,
+                "Yoshika Miyako (2)",
+                null
         );
         addMiko(
                 "youmu",
-                new Miko(
-                        R.drawable.youmu,
-                        "youmu",
-                        "Youmu",
-                        "射命丸 文"
-                )
+                R.drawable.youmu,
+                "Youmu Konpaku",
+                "魂魄 妖夢"
         );
         addMiko(
                 "yuugi",
-                new Miko(
-                        R.drawable.yuugi,
-                        "yuugi",
-                        "Yuugi",
-                        "射命丸 文"
-                )
+                R.drawable.yuugi,
+                "Yuugi Hoshiguma",
+                null
         );
         addMiko(
                 "yuuka",
-                new Miko(
-                        R.drawable.yuuka,
-                        "yuuka",
-                        "Yuuka",
-                        "射命丸 文"
-                )
+                R.drawable.yuuka,
+                "Yuuka Kazami",
+                null
         );
         addMiko(
                 "yuyuko",
-                new Miko(
-                        R.drawable.yuyuko,
-                        "yuyuko",
-                        "Yuyuko",
-                        "射命丸 文"
-                )
+                R.drawable.yuyuko,
+                "Yuyuko Saigyouji",
+                "西行寺 幽々子"
         );
     }
 
-    private static void addMiko(String key, Miko miko) {
+    private static void addMiko(
+            String key,
+            int resource,
+            String engName,
+            String jpName
+    ) {
         mikobase.put(
                 key,
-                miko
+                new Miko(
+                        resource,
+                        key,
+                        engName,
+                        jpName
+                )
         );
     }
 
@@ -802,7 +560,6 @@ public class MikoDatabase {
         defaultEnabledMikos.add("reimu");
         defaultEnabledMikos.add("aya");
         defaultEnabledMikos.add("alice");
-        defaultEnabledMikos.add("udonge");
         defaultEnabledMikos.add("sanae");
         defaultEnabledMikos.add("chirno");
     }
