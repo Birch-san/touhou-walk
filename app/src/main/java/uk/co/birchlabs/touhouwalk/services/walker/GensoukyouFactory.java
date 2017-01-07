@@ -8,9 +8,7 @@ import android.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
-import uk.co.birchlabs.touhouwalk.R;
 import uk.co.birchlabs.touhouwalk.global.MikoDatabase;
 import uk.co.birchlabs.touhouwalk.global.Variables;
 
@@ -72,7 +70,7 @@ public class GensoukyouFactory {
             if (prefs.getBoolean(Variables.getBakaCheckboxVar(mikoKey), MikoDatabase.isMikoOnByDefault(mikoKey))) {
                 gensoukyou.addBaka(
                         constructBaka(
-                                MikoDatabase.getMiko(mikoKey).getResource(),
+                                MikoDatabase.getMiko(mikoKey),
                                 bakaFactory
                         )
                 );

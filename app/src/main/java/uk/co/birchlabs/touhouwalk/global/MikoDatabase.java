@@ -12,534 +12,359 @@ import uk.co.birchlabs.touhouwalk.R;
  */
 
 public class MikoDatabase {
-    private static final Map<String, Miko> mikobase;
+    private static final Map<String, Integer> mikobase;
 
     static {
         mikobase = new TreeMap<>();
         addMiko(
                 "alice",
-                R.drawable.alice,
-                "Alice Margatroid",
-                "アリス・マーガトロイド"
+                R.drawable.alice
         );
         addMiko(
                 "aya",
-                R.drawable.aya,
-                "Aya Shameimaru",
-                "射命丸 文"
+                R.drawable.aya
         );
         addMiko(
                 "benben",
-                R.drawable.benben,
-                "Benben Tsukumo",
-                null
+                R.drawable.benben
         );
         addMiko(
                 "chen",
-                R.drawable.chen,
-                "Chen",
-                null
+                R.drawable.chen
         );
         addMiko(
                 "chirno",
-                R.drawable.chirno,
-                "Cirno",
-                "チルノ"
+                R.drawable.chirno
         );
         addMiko(
                 "daiyousei",
-                R.drawable.daiyousei,
-                "Daiyousei",
-                null
+                R.drawable.daiyousei
         );
         addMiko(
                 "eirin",
-                R.drawable.eirin,
-                "Eirin Yagokoro",
-                null
+                R.drawable.eirin
         );
         addMiko(
                 "fran",
-                R.drawable.fran,
-                "Flandre Scarlet",
-                "フランドール・スカーレット"
+                R.drawable.fran
         );
         addMiko(
                 "hatate",
-                R.drawable.hatate,
-                "Hatate Himekaidou",
-                null
+                R.drawable.hatate
         );
         addMiko(
                 "hijiri",
-                R.drawable.hijiri,
-                "Byakuren Hijiri",
-                null
+                R.drawable.hijiri
         );
         addMiko(
                 "hina",
-                R.drawable.hina,
-                "Hina Kagiyama",
-                null
+                R.drawable.hina
         );
         addMiko(
                 "huto",
-                R.drawable.huto,
-                "Huto",
-                null
+                R.drawable.huto
         );
         addMiko(
                 "ichirin",
-                R.drawable.ichirin,
-                "Ichirin Kumoi",
-                null
+                R.drawable.ichirin
         );
         addMiko(
                 "iku",
-                R.drawable.iku,
-                "Iku Nagae",
-                "永江 衣玖"
+                R.drawable.iku
         );
         addMiko(
                 "kagerou",
-                R.drawable.kagerou,
-                "Kagerou Imaizumi",
-                null
+                R.drawable.kagerou
         );
         addMiko(
                 "kaguya",
-                R.drawable.kaguya,
-                "Kaguya Houraisan",
-                "蓬莱山 輝夜"
+                R.drawable.kaguya
         );
         addMiko(
                 "kanako",
-                R.drawable.kanako,
-                "Kanako Yasaka",
-                null
+                R.drawable.kanako
         );
         addMiko(
                 "keine",
-                R.drawable.keine,
-                "Keine Kamishirasawa",
-                null
+                R.drawable.keine
         );
         addMiko(
                 "keinekimo",
-                R.drawable.keinekimo,
-                "Keinekimo",
-                null
+                R.drawable.keinekimo
         );
         addMiko(
                 "kisume",
-                R.drawable.kisume,
-                "Kisume",
-                null
+                R.drawable.kisume
         );
         addMiko(
                 "koa",
-                R.drawable.koa,
-                "Koakuma",
-                null
+                R.drawable.koa
         );
         addMiko(
                 "kogasa",
-                R.drawable.kogasa,
-                "Kogasa Tatara",
-                null
+                R.drawable.kogasa
         );
         addMiko(
                 "koishi",
-                R.drawable.koishi,
-                "Koishi Komeiji",
-                null
+                R.drawable.koishi
         );
         addMiko(
                 "kokoro",
-                R.drawable.kokoro,
-                "Hata no Kokoro",
-                "秦 こころ"
+                R.drawable.kokoro
         );
         addMiko(
                 "komachi",
-                R.drawable.komachi,
-                "Komachi Onozuka",
-                null
+                R.drawable.komachi
         );
         addMiko(
                 "kyoko",
-                R.drawable.kyoko,
-                "Kyouko Kasodani",
-                null
+                R.drawable.kyoko
         );
         addMiko(
                 "lily_black",
-                R.drawable.lily_black,
-                "Lily Black",
-                null
+                R.drawable.lily_black
         );
         addMiko(
                 "lily_white",
-                R.drawable.lily_white,
-                "Lily White",
-                null
+                R.drawable.lily_white
         );
         addMiko(
                 "mamizo",
-                R.drawable.mamizo,
-                "Mamizo Futatsuiwa",
-                null
+                R.drawable.mamizo
         );
         addMiko(
                 "marisa",
-                R.drawable.marisa,
-                "Marisa Kirisame",
-                "霧雨 魔理沙"
+                R.drawable.marisa
         );
         addMiko(
                 "meirin",
-                R.drawable.meirin,
-                "Hong Meiling",
-                null
+                R.drawable.meirin
         );
         addMiko(
                 "melran",
-                R.drawable.melran,
-                "Melran",
-                null
+                R.drawable.melran
         );
         addMiko(
                 "merancory",
-                R.drawable.merancory,
-                "Medicine Melancholy",
-                null
+                R.drawable.merancory
         );
         addMiko(
                 "miko",
-                R.drawable.miko,
-                "Toyosatomimi no Miko",
-                null
+                R.drawable.miko
         );
         addMiko(
                 "minoriko",
-                R.drawable.minoriko,
-                "Minoriko Aki",
-                null
+                R.drawable.minoriko
         );
         addMiko(
                 "mistia",
-                R.drawable.mistia,
-                "Mystia Lorelei",
-                null
+                R.drawable.mistia
         );
         addMiko(
                 "moko",
-                R.drawable.moko,
-                "Fujiwara no Mokou",
-                null
+                R.drawable.moko
         );
         addMiko(
                 "momiji",
-                R.drawable.momiji,
-                "Momiji Inubashiri",
-                null
+                R.drawable.momiji
         );
         addMiko(
                 "murasa",
-                R.drawable.murasa,
-                "Minamitsu Murasa",
-                null
+                R.drawable.murasa
         );
         addMiko(
                 "nazu",
-                R.drawable.nazu,
-                "Nazrin",
-                null
+                R.drawable.nazu
         );
         addMiko(
                 "nitori",
-                R.drawable.nitori,
-                "Nitori Kawashiro",
-                null
+                R.drawable.nitori
         );
         addMiko(
                 "nue",
-                R.drawable.nue,
-                "Nue Houjuu",
-                null
+                R.drawable.nue
         );
         addMiko(
                 "orin",
-                R.drawable.orin,
-                "Orange",
-                null
+                R.drawable.orin
         );
         addMiko(
                 "pal",
-                R.drawable.pal,
-                "Parsee Mizuhashi",
-                null
+                R.drawable.pal
         );
         addMiko(
                 "patyuri",
-                R.drawable.patyuri,
-                "Patchouli Knowledge",
-                "パチュリー・ノーレッジ"
+                R.drawable.patyuri
         );
         addMiko(
                 "raiko",
-                R.drawable.raiko,
-                "Raiko Horikawa",
-                null
+                R.drawable.raiko
         );
         addMiko(
                 "ran",
-                R.drawable.ran,
-                "Ran Yakumo",
-                null
+                R.drawable.ran
         );
         addMiko(
                 "reimu",
-                R.drawable.reimu,
-                "Reimu Hakurei",
-                "博麗 霊夢"
+                R.drawable.reimu
         );
         addMiko(
                 "remiria",
-                R.drawable.remiria,
-                "Remilia Scarlet",
-                "レミリア・スカーレット"
+                R.drawable.remiria
         );
         addMiko(
                 "rety",
-                R.drawable.rety,
-                "Letty Whiterock",
-                null
+                R.drawable.rety
         );
         addMiko(
                 "riguru",
-                R.drawable.riguru,
-                "Wriggle Nightbug",
-                null
+                R.drawable.riguru
         );
         addMiko(
                 "rinnosuke",
-                R.drawable.rinnosuke,
-                "Rinnosuke Morichika",
-                null
+                R.drawable.rinnosuke
         );
         addMiko(
                 "ririka",
-                R.drawable.ririka,
-                "Lyrica Prismriver",
-                null
+                R.drawable.ririka
         );
         addMiko(
                 "rumia",
-                R.drawable.rumia,
-                "Rumia",
-                null
+                R.drawable.rumia
         );
         addMiko(
                 "runasa",
-                R.drawable.runasa,
-                "Lunasa Prismriver",
-                null
+                R.drawable.runasa
         );
         addMiko(
                 "sakuya",
-                R.drawable.sakuya,
-                "Sakuya Izayoi",
-                null
+                R.drawable.sakuya
         );
         addMiko(
                 "sanae",
-                R.drawable.sanae,
-                "Sanae Kochiya",
-                "東風谷 早苗"
+                R.drawable.sanae
         );
         addMiko(
                 "satori",
-                R.drawable.satori,
-                "Satori Komeiji",
-                null
+                R.drawable.satori
         );
         addMiko(
                 "seiga",
-                R.drawable.seiga,
-                "Seiga Kaku",
-                null
+                R.drawable.seiga
         );
         addMiko(
                 "seija",
-                R.drawable.seija,
-                "Seija Kijin",
-                null
+                R.drawable.seija
         );
         addMiko(
                 "sekibanki",
-                R.drawable.sekibanki,
-                "Sekibanki",
-                null
+                R.drawable.sekibanki
         );
         addMiko(
                 "shannhai",
-                R.drawable.shannhai,
-                "Shanghai",
-                null
+                R.drawable.shannhai
         );
         addMiko(
                 "shinmyoumaru",
-                R.drawable.shinmyoumaru,
-                "Shinmyoumaru Sukuna",
-                null
+                R.drawable.shinmyoumaru
         );
         addMiko(
                 "shizuha",
-                R.drawable.shizuha,
-                "Shizuha Aki",
-                null
+                R.drawable.shizuha
         );
         addMiko(
                 "sikieiki",
-                R.drawable.sikieiki,
-                "Shikieiki Yamaxanadu",
-                null
+                R.drawable.sikieiki
         );
         addMiko(
                 "suika",
-                R.drawable.suika,
-                "Suika Ibuki",
-                null
+                R.drawable.suika
         );
         addMiko(
                 "suwako",
-                R.drawable.suwako,
-                "Suwako Moriya",
-                null
+                R.drawable.suwako
         );
         addMiko(
                 "tei",
-                R.drawable.tei,
-                "Tewi Inaba",
-                null
+                R.drawable.tei
         );
         addMiko(
                 "tenshi",
-                R.drawable.tenshi,
-                "Tenshi Hinanawi",
-                null
+                R.drawable.tenshi
         );
         addMiko(
                 "tojiko",
-                R.drawable.tojiko,
-                "Soga no Tojiko",
-                null
+                R.drawable.tojiko
         );
         addMiko(
                 "tojiko2",
-                R.drawable.tojiko2,
-                "Soga no Tojiko (2)",
-                null
+                R.drawable.tojiko2
         );
         addMiko(
                 "toramaru",
-                R.drawable.toramaru,
-                "Shou Toramaru",
-                null
+                R.drawable.toramaru
         );
         addMiko(
                 "udonge",
-                R.drawable.udonge,
-                "Reisen Udongein Inaba",
-                null
+                R.drawable.udonge
         );
         addMiko(
                 "utsuho",
-                R.drawable.utsuho,
-                "Utsuho Reiuji",
-                "霊烏路 空"
+                R.drawable.utsuho
         );
         addMiko(
                 "wakasagi",
-                R.drawable.wakasagi,
-                "Wakasagihime",
-                null
+                R.drawable.wakasagi
         );
         addMiko(
                 "yakumoyukari",
-                R.drawable.yakumoyukari,
-                "Yukari Yakumo",
-                null
+                R.drawable.yakumoyukari
         );
         addMiko(
                 "yamame",
-                R.drawable.yamame,
-                "Yamame Kurodani",
-                null
+                R.drawable.yamame
         );
         addMiko(
                 "yatsuhashi",
-                R.drawable.yatsuhashi,
-                "Yatsuhashi Tsukumo",
-                null
+                R.drawable.yatsuhashi
         );
         addMiko(
                 "yoshika",
-                R.drawable.yoshika,
-                "Yoshika Miyako",
-                null
+                R.drawable.yoshika
         );
         addMiko(
                 "yoshika2",
-                R.drawable.yoshika2,
-                "Yoshika Miyako (2)",
-                null
+                R.drawable.yoshika2
         );
         addMiko(
                 "youmu",
-                R.drawable.youmu,
-                "Youmu Konpaku",
-                "魂魄 妖夢"
+                R.drawable.youmu
         );
         addMiko(
                 "yuugi",
-                R.drawable.yuugi,
-                "Yuugi Hoshiguma",
-                null
+                R.drawable.yuugi
         );
         addMiko(
                 "yuuka",
-                R.drawable.yuuka,
-                "Yuuka Kazami",
-                null
+                R.drawable.yuuka
         );
         addMiko(
                 "yuyuko",
-                R.drawable.yuyuko,
-                "Yuyuko Saigyouji",
-                "西行寺 幽々子"
+                R.drawable.yuyuko
         );
     }
 
     private static void addMiko(
             String key,
-            int resource,
-            String engName,
-            String jpName
+            int resource
     ) {
         mikobase.put(
                 key,
-                new Miko(
-                        resource,
-                        key,
-                        engName,
-                        jpName
-                )
+                resource
         );
     }
 
-    public static Miko getMiko(String key) {
+    public static Integer getMiko(String key) {
         return mikobase.get(key);
     }
 

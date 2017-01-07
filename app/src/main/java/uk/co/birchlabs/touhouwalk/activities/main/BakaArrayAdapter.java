@@ -2,6 +2,8 @@ package uk.co.birchlabs.touhouwalk.activities.main;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.preference.PreferenceManager;
@@ -14,15 +16,11 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 import uk.co.birchlabs.touhouwalk.R;
 import uk.co.birchlabs.touhouwalk.global.BitmapUtils;
-import uk.co.birchlabs.touhouwalk.global.Miko;
 import uk.co.birchlabs.touhouwalk.global.MikoDatabase;
 import uk.co.birchlabs.touhouwalk.global.Variables;
 import uk.co.birchlabs.touhouwalk.services.walker.Animation;
@@ -38,12 +36,19 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
     private final String[] values;
 
     private final SharedPreferences prefs;
+    private final Resources japaneseResources;
 
     public BakaArrayAdapter(Context context, String[] values) {
         super(context, R.layout.baka_list_item_main, values);
         this.context = context;
         this.values = values;
         prefs = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+
+        final Configuration japaneseConfig = new Configuration(context.getResources().getConfiguration());
+        japaneseConfig.setLocale(Locale.JAPANESE);
+
+        final Context japaneseConfigContext = context.createConfigurationContext(japaneseConfig);
+        japaneseResources = japaneseConfigContext.getResources();
     }
 
     @Override
@@ -59,8 +64,8 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
         // Change icon based on name
         final String assetKey = values[position];
 
-        final String localName;
-        final String foreignName;
+//        final String localName;
+//        final String foreignName;
 //
 //        final Locale currentLocale;
 //        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
@@ -72,27 +77,25 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
 //        final Set<Locale> jpLocales = new HashSet<>();
 //        jpLocales.add(Locale.JAPAN);
 //        jpLocales.add(Locale.JAPANESE);
+        final int mikoNameIdentifier = context.getResources().getIdentifier(
+                "miko_name_" + assetKey,
+                "string",
+                context.getApplicationContext().getPackageName()
+        );
 
-        final Miko miko = MikoDatabase.getMiko(assetKey);
+        final String localName = context.getResources().getString(mikoNameIdentifier);
+        final String japaneseName = japaneseResources.getString(mikoNameIdentifier);
 
-        if (miko.getJpName() == null) {
+        if (japaneseName.isEmpty()) {
             textView.setText(
-                    miko.getEngName()
+                    localName
             );
         } else {
-//            if (jpLocales.contains(currentLocale)) {
-//                localName = miko.getJpName();
-//                foreignName = miko.getEngName();
-//            } else {
-                localName = miko.getEngName();
-                foreignName = miko.getJpName();
-//            }
-//
             textView.setText(
                     String.format(
                             "%s\n%s",
                             localName,
-                            foreignName
+                            japaneseName
                     )
             );
         }
@@ -101,7 +104,7 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
 
         final Spritesheet spritesheet = new Spritesheet(
                 BitmapUtils.getRawBmp(
-                        miko.getResource(),
+                        MikoDatabase.getMiko(assetKey),
                         getContext().getResources()
                 ),
                 scaleFactor
