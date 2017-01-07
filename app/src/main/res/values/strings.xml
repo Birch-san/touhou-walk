@@ -13,4 +13,5 @@
     <string name="baka_content_description">Portrait</string>
     <string name="baka_choose">Baka</string>
     <string name="baka_clear">Clear all baka</string>
+    <string name="baka_default">Default baka</string>
 </resources>

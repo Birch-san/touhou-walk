@@ -194,6 +194,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.baka_default_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final SharedPreferences.Editor editor = prefs.edit();
+                for (String mikoKey : MikoDatabase.getKeys()) {
+                    editor.putBoolean(Variables.getBakaCheckboxVar(mikoKey), MikoDatabase.isMikoOnByDefault(mikoKey));
+                }
+                editor.apply();
+                bakaArrayAdapter.notifyDataSetChanged();
+            }
+        });
+
         listView.setAdapter(
                 bakaArrayAdapter
         );
