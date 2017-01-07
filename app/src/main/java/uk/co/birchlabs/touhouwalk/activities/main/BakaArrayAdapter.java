@@ -86,7 +86,7 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
         final String localName = context.getResources().getString(mikoNameIdentifier);
         final String japaneseName = japaneseResources.getString(mikoNameIdentifier);
 
-        if (japaneseName.isEmpty()) {
+        if (japaneseName.isEmpty() || localName.equalsIgnoreCase(japaneseName)) {
             textView.setText(
                     localName
             );
