@@ -20,7 +20,7 @@ public class SpritesheetRowToAnimation {
         final List<Rect> frames = new ArrayList<>();
         final int width = spritesheet.getScaled().getWidth()/columns;
         for(int column = 0; column < columns; column++) {
-            int x = column * height;
+            int x = column * width;
             frames.add(
                     new Rect(
                            x,
