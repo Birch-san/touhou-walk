@@ -177,11 +177,25 @@ public class MainActivity extends AppCompatActivity {
 
         final ListView listView = (ListView) findViewById(R.id.baka_list);
 
+        final BakaArrayAdapter bakaArrayAdapter = new BakaArrayAdapter(
+                listView.getContext(),
+                MikoDatabase.getKeys()
+        );
+
+        findViewById(R.id.baka_clear_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final SharedPreferences.Editor editor = prefs.edit();
+                for (String mikoKey : MikoDatabase.getKeys()) {
+                    editor.putBoolean(Variables.getBakaCheckboxVar(mikoKey), false);
+                }
+                editor.apply();
+                bakaArrayAdapter.notifyDataSetChanged();
+            }
+        });
+
         listView.setAdapter(
-                new BakaArrayAdapter(
-                        listView.getContext(),
-                        MikoDatabase.getKeys()
-                )
+                bakaArrayAdapter
         );
     }
 
