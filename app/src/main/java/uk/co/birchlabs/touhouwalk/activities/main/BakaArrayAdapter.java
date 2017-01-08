@@ -37,6 +37,7 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
 
     private final SharedPreferences prefs;
     private final Resources japaneseResources;
+    private final Resources englishResources;
 
     public BakaArrayAdapter(Context context, String[] values) {
         super(context, R.layout.baka_list_item_main, values);
@@ -47,8 +48,14 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
         final Configuration japaneseConfig = new Configuration(context.getResources().getConfiguration());
         japaneseConfig.setLocale(Locale.JAPANESE);
 
+        final Configuration englishConfig = new Configuration(context.getResources().getConfiguration());
+        japaneseConfig.setLocale(Locale.ENGLISH);
+
         final Context japaneseConfigContext = context.createConfigurationContext(japaneseConfig);
         japaneseResources = japaneseConfigContext.getResources();
+
+        final Context englishConfigContext = context.createConfigurationContext(englishConfig);
+        englishResources = japaneseConfigContext.getResources();
     }
 
     @Override
@@ -84,21 +91,22 @@ public class BakaArrayAdapter extends ArrayAdapter<String> {
         );
 
         final String localName = context.getResources().getString(mikoNameIdentifier);
+        final String englishName = englishResources.getString(mikoNameIdentifier);
         final String japaneseName = japaneseResources.getString(mikoNameIdentifier);
 
-        if (japaneseName.isEmpty() || localName.equalsIgnoreCase(japaneseName)) {
-            textView.setText(
-                    localName
-            );
-        } else {
-            textView.setText(
-                    String.format(
-                            "%s\n%s",
-                            localName,
-                            japaneseName
-                    )
-            );
+        String name = localName;
+
+        if (localName.isEmpty()) {
+            name = englishName;
         }
+
+        if (!japaneseName.isEmpty() && !japaneseName.equalsIgnoreCase(name)) {
+            name += "\n" + japaneseName;
+        }
+
+        textView.setText(
+                name
+        );
 
         final int scaleFactor = 1;
 
