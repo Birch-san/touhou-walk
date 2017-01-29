@@ -11,15 +11,15 @@
     <string name="spawn_checkbox_bottom">下</string>
     <string name="spawn_checkbox_at_least">少なくとも一つの生み付ける場所が必要です</string>
     <string name="baka_content_description">写真</string>
-    <string name="baka_choose">バカ</string>
-    <string name="baka_clear">バカを消す</string>
-    <string name="baka_default">デフォルトバカ</string>
+    <string name="baka_choose">神子</string>
+    <string name="baka_clear">神子を消す</string>
+    <string name="baka_default">デフォルト神子</string>
 
     <string name="miko_name_alice">アリス・マーガトロイド</string>
     <string name="miko_name_aya">射命丸 文</string>
     <string name="miko_name_benben"></string>
     <string name="miko_name_chen"></string>
-    <string name="miko_name_chirno">チルノ</string>
+    <string name="miko_name_chirno">⑨. バカ</string>
     <string name="miko_name_daiyousei"></string>
     <string name="miko_name_eirin"></string>
     <string name="miko_name_fran">フランドール・スカーレット</string>
